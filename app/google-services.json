@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "641778310661",
+    "project_id": "lalunaltd-8655e",
+    "storage_bucket": "lalunaltd-8655e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641778310661:android:263b66e092b5c9d9e9066c",
+        "android_client_info": {
+          "package_name": "com.example.lalunaltd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN46ZqyWRWz5T0JH3c2Fe1pQNTiZlJ5Ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
