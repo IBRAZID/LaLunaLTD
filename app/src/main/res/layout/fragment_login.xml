@@ -7,7 +7,7 @@
     tools:context=".LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/etUsernameLogin"
+        android:id="@+id/clLogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,9 +16,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="118dp"
+            android:layout_marginBottom="79dp"
             android:ems="10"
             android:hint="Username..."
             android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/etPasswordLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,10 +29,11 @@
             android:id="@+id/etPasswordLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="79dp"
+            android:layout_marginBottom="179dp"
             android:ems="10"
             android:hint="Password..."
             android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/tvSignupLinkLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etUsernameLogin" />
@@ -39,20 +42,56 @@
             android:id="@+id/btnLoginLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="99dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="32dp"
             android:text="Login"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="168dp"
+            android:layout_height="21dp"
+            android:text="Forgot Password? "
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="77dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="171dp"
+            android:onClick="gotoResetPassword"
+            android:text="Reset it"
+            android:textColor="@color/mainBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tvSignupLinkLogin"
+            app:layout_constraintTop_toBottomOf="@+id/tvSignupLinkLogin" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="9dp"
+            android:text="Dont allready have an account? "
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvSignupLinkLogin"
+            app:layout_constraintEnd_toStartOf="@+id/tvSignupLinkLogin"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tvSignupLinkLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="31dp"
-            android:text="Signup..."
-            app:layout_constraintStart_toStartOf="@+id/btnLoginLogin"
-            app:layout_constraintTop_toBottomOf="@+id/btnLoginLogin" />
+            android:layout_marginBottom="53dp"
+            android:text="SignUp"
+            android:textColor="@color/mainBlue"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -116,8 +116,10 @@ public class LoginFragment extends Fragment {
         });
     }
     private void gotoSignupFragment() {
-        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain,new SignupFragment());
-        ft.commit();
+
+    }
+
+    public void gotoResetPassword(View view) {
+
     }
 }

@@ -11,6 +11,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       gotoLoginFragment();
+    }
+
+    private void gotoLoginFragment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new LoginFragment());
         ft.commit();
