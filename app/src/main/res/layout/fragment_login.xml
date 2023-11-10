@@ -83,6 +83,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:onClick="gotoSignUpFragment"
             android:id="@+id/tvSignupLinkLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
