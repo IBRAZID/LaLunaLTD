@@ -28,6 +28,7 @@ public class LoginFragment extends Fragment {
     private Button btnLogin;
     private TextView tvSignupLink;
     private FirebaseServices fbs;
+    private  TextView tvReset;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,12 +84,14 @@ public class LoginFragment extends Fragment {
         etPassword=getView().findViewById(R.id.etPasswordLogin);
         btnLogin=getView().findViewById(R.id.btnLoginLogin);
         tvSignupLink=getView().findViewById(R.id.tvSignupLinkLogin);
+        tvReset=getView().findViewById(R.id.tvResetLogin);
         tvSignupLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gotoSignupFragment();
             }
         });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +117,13 @@ public class LoginFragment extends Fragment {
                 });
             }
         });
+        tvReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoResetPassword();
+            }
+        });
+
     }
     private void gotoSignupFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
@@ -123,7 +133,7 @@ public class LoginFragment extends Fragment {
     }
 
 
-    public void gotoResetPassword(View view) {
+    public void gotoResetPassword() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new ForgotFragment());
         ft.commit();
