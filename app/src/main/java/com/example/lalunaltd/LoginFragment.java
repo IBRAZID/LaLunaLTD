@@ -122,7 +122,6 @@ public class LoginFragment extends Fragment {
 
     }
 
-
     public void gotoResetPassword(View view) {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new ForgotFragment());
