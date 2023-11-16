@@ -28,12 +28,13 @@
             android:id="@+id/btnWaterHome"
             android:layout_width="188dp"
             android:layout_height="0dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="74dp"
             android:backgroundTint="#03A9F4"
             android:text="Water"
             app:layout_constraintBottom_toTopOf="@+id/btnIsraeliHome"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
