@@ -105,6 +105,7 @@ public class LoginFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(getActivity(), "Successfully Logged In!", Toast.LENGTH_SHORT).show();
+                            gotoHomeFragment();
                             //TODO: decide what to do
                         }
                         else{
@@ -136,6 +137,11 @@ public class LoginFragment extends Fragment {
     public void gotoResetPassword() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new ForgotFragment());
+        ft.commit();
+    }
+    public void gotoHomeFragment() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new HomeFragment());
         ft.commit();
     }
 }

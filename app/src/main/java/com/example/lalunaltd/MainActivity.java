@@ -11,12 +11,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       gotoLoginFragment();
+       gotoHomeFragment();
     }
 
     private void gotoLoginFragment() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new LoginFragment());
+        ft.commit();
+    }
+    private void gotoHomeFragment() {
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new HomeFragment());
         ft.commit();
     }
 }
