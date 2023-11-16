@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       gotoHomeFragment();
+       gotoHomeFragmentt();
     }
 
     private void gotoLoginFragment() {
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.FrameLayoutMain,new LoginFragment());
         ft.commit();
     }
-    private void gotoHomeFragment() {
+    private void gotoHomeFragmentt() {
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new HomeFragment());
         ft.commit();
