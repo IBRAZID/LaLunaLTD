@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +18,9 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+    private FirebaseServices fbs;
     private Button btnWater,btnIsraelCans,btnArabicCans;
+    private TextView tvSignout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,13 +64,29 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        fbs=FirebaseServices.getInstance();
         btnWater=getView().findViewById(R.id.btnWaterHome);
         btnIsraelCans=getView().findViewById(R.id.btnIsraeliHome);
+        tvSignout=getView().findViewById(R.id.tvSignoutHomeFragment);
         btnArabicCans=getView().findViewById(R.id.btnArabicHome);
+        tvSignout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fbs.getAuth().signOut();
+                Toast.makeText(getActivity(), "Successfully Signed Out", Toast.LENGTH_SHORT).show();
+                gotoLoginFragment();
+            }
+        });
         btnWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoWaterFragment();
+            }
+        });
+        btnIsraelCans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoIsraeliCansFragment();
             }
         });
     }
@@ -83,5 +103,14 @@ public class HomeFragment extends Fragment {
         ft.replace(R.id.FrameLayoutMain,new WaterFragment());
         ft.commit();
     }
-
+    private void gotoLoginFragment(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new LoginFragment());
+        ft.commit();
+    }
+    public void gotoIsraeliCansFragment() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new IsraeliCansFragment());
+        ft.commit();
+    }
 }
