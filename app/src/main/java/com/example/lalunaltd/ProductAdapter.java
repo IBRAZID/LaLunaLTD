@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     ArrayList<Product> ProductList;
     private FirebaseServices fbs;
 
-    public ProductAdapter(Context context, ArrayList<Product> restList) {
+    public ProductAdapter(Context context, ArrayList<Product> ProductList) {
         this.context = context;
         this.ProductList = ProductList;
         this.fbs = FirebaseServices.getInstance();
@@ -31,8 +32,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
-        Product rest = ProductList.get(position);
-
+        Product prod = ProductList.get(position);
+        holder.tvName.setText(prod.getName());
     }
 
     @Override
@@ -41,10 +42,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvName, tvPhone;
+        TextView tvName;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName=itemView.findViewById(R.id.tvName);
+            tvName=itemView.findViewById(R.id.tvNameLayoutXml);
         }
     }
 }
