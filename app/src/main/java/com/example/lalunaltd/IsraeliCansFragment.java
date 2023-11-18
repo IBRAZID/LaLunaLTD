@@ -83,7 +83,7 @@ public class IsraeliCansFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackWater);
+        btnBack=getView().findViewById(R.id.btnBackIsraeliCans);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,12 +92,11 @@ public class IsraeliCansFragment extends Fragment {
         });
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
-        rvIsraeliCans = getView().findViewById(R.id.rvWaterWaterFragment);
+        rvIsraeliCans = getView().findViewById(R.id.rvIsraeliCansIsraeliCansFragment);
         adapter = new ProductAdapter(getActivity(), prods);
         rvIsraeliCans.setAdapter(adapter);
         rvIsraeliCans.setHasFixedSize(true);
         rvIsraeliCans.setLayoutManager(new LinearLayoutManager(getActivity()));
-        try {
             fbs.getFire().collection("Product").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -117,11 +116,6 @@ public class IsraeliCansFragment extends Fragment {
                     Log.e("IsraeliCansFragment", e.getMessage());
                 }
             });
-        }
-        catch (Exception ex)
-        {
-            Log.e("", ex.getMessage());
-        }
     }
 
 
