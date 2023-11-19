@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.EventLogTags;
 import android.util.Log;
@@ -112,6 +113,7 @@ public class AddProductFragment extends Fragment {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getActivity(), "Successfully added your Product!", Toast.LENGTH_SHORT).show();
+                        gotoHomeFragment();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -123,5 +125,10 @@ public class AddProductFragment extends Fragment {
 
             }
         });
+    }
+    private void gotoHomeFragment(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+        ft.commit();
     }
 }

@@ -83,7 +83,7 @@ public class ArabicCansFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackWater);
+        btnBack=getView().findViewById(R.id.btnBackArabicCans);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +92,7 @@ public class ArabicCansFragment extends Fragment {
         });
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
-        rvArabicCans = getView().findViewById(R.id.rvWaterWaterFragment);
+        rvArabicCans = getView().findViewById(R.id.rvArabicCansArabicCansFragment);
         adapter = new ProductAdapter(getActivity(), prods);
         rvArabicCans.setAdapter(adapter);
         rvArabicCans.setHasFixedSize(true);
@@ -105,7 +105,9 @@ public class ArabicCansFragment extends Fragment {
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
 
-                        prods.add(prod);
+                        if(prod.getCatagory()=="ArabicCans") {
+                            prods.add(prod);
+                        }
                     }
 
                     adapter.notifyDataSetChanged();
@@ -132,4 +134,3 @@ public class ArabicCansFragment extends Fragment {
     }
 }
 
-}

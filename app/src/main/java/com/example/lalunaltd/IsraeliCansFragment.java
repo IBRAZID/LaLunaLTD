@@ -104,7 +104,9 @@ public class IsraeliCansFragment extends Fragment {
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
 
-                        prods.add(prod);
+                        if(prod.getCatagory()=="IsraeliCans") {
+                            prods.add(prod);
+                        }
                     }
 
                     adapter.notifyDataSetChanged();

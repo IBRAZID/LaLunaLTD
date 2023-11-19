@@ -97,6 +97,7 @@ public class SignupFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(getActivity(), "Successfully Signed Up!", Toast.LENGTH_SHORT).show();
+                            gotoLoginFragment();
                             //TODO: decide what to do
                         }
                         else{

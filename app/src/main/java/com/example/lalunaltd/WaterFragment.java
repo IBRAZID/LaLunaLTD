@@ -89,13 +89,7 @@ public class WaterFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackWater);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoHomeFragment();
-            }
-        });
+
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
         rvWater = getView().findViewById(R.id.rvWaterWaterFragment);
@@ -103,6 +97,13 @@ public class WaterFragment extends Fragment {
         rvWater.setAdapter(adapter);
         rvWater.setHasFixedSize(true);
         rvWater.setLayoutManager(new LinearLayoutManager(getActivity()));
+        btnBack=getView().findViewById(R.id.btnBackWater);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoHomeFragment();
+            }
+        });
         try {
             fbs.getFire().collection("Product").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
@@ -110,8 +111,9 @@ public class WaterFragment extends Fragment {
 
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
-
-                        prods.add(prod);
+                        if(prod.getCatagory()=="Water") {
+                            prods.add(prod);
+                        }
                     }
 
                     adapter.notifyDataSetChanged();

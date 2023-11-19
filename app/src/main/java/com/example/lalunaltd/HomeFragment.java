@@ -19,7 +19,7 @@ import android.widget.Toast;
  */
 public class HomeFragment extends Fragment {
     private FirebaseServices fbs;
-    private Button btnWater,btnIsraelCans,btnArabicCans;
+    private Button btnWater,btnIsraelCans,btnArabicCans,btnAdd;
     private TextView tvSignout;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -65,10 +65,17 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
         fbs=FirebaseServices.getInstance();
+        btnAdd=getView().findViewById(R.id.btnAddHomeFragment);
         btnWater=getView().findViewById(R.id.btnWaterHome);
         btnIsraelCans=getView().findViewById(R.id.btnIsraeliHome);
         tvSignout=getView().findViewById(R.id.tvSignoutHomeFragment);
         btnArabicCans=getView().findViewById(R.id.btnArabicHome);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoAddProductFragment();
+            }
+        });
         tvSignout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +118,11 @@ public class HomeFragment extends Fragment {
     public void gotoIsraeliCansFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new IsraeliCansFragment());
+        ft.commit();
+    }
+    private void gotoAddProductFragment(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new AddProductFragment());
         ft.commit();
     }
 }
