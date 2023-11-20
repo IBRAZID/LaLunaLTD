@@ -3,12 +3,12 @@ package com.example.lalunaltd;
 public class Product {
     private String name;
     private String description;
-    private String Catagory;
+    private String category;
 
-    public Product(String name, String description, String catagory) {
+    public Product(String name, String description, String category) {
         this.name = name;
         this.description = description;
-        Catagory = catagory;
+        this.category = category;
     }
 
     public String getName() {
@@ -27,12 +27,12 @@ public class Product {
         this.description = description;
     }
 
-    public String getCatagory() {
-        return Catagory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCatagory(String catagory) {
-        Catagory = catagory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Product {
         return "Product{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", Catagory='" + Catagory + '\'' +
+                ", category='" + category + '\'' +
                 '}';
     }
 }

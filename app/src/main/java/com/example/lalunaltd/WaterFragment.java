@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -111,7 +110,7 @@ public class WaterFragment extends Fragment {
 
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
-                        if(prod.getCatagory()=="Water") {
+                        if(prod.getCategory()=="Water") {
                             prods.add(prod);
                         }
                     }

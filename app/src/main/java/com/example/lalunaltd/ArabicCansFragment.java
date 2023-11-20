@@ -105,7 +105,7 @@ public class ArabicCansFragment extends Fragment {
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
 
-                        if(prod.getCatagory()=="ArabicCans") {
+                        if(prod.getCategory()=="ArabicCans") {
                             prods.add(prod);
                         }
                     }

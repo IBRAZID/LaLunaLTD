@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -29,11 +30,13 @@ import com.google.firebase.firestore.DocumentReference;
 public class AddProductFragment extends Fragment {
 
     private FirebaseServices fbs;
+    private Spinner spnrCategory;
     private EditText etProductName, etCategory,etDescription;
     private Button btnAdd;
+    String[]Categories={"Select Category...","Water","IsraeliCans","ArabicCans"};
 
     // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    // the fragment initialization parameters,     String[]Categories={"Water","IsraeliCans","ArabicCans"};e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -89,7 +92,9 @@ public class AddProductFragment extends Fragment {
 
     private void connectComponents() {
         fbs = FirebaseServices.getInstance();
-        etCategory=getView().findViewById(R.id.etCategoryAddProduct);
+        spnrCategory=getView().findViewById(R.id.spnrCategoryAddProduct);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(), R.layout.spinnerlayout,Categories);
+        adapter.setDropDownViewResource(R.layout.spinnerlayout);
         etProductName=getView().findViewById(R.id.etProductNameAddProduct);
         etDescription=getView().findViewById(R.id.etDescriptionAddProduct);
         btnAdd=getView().findViewById(R.id.btnAddAddProduct);
@@ -109,7 +114,7 @@ public class AddProductFragment extends Fragment {
                 // add data to firestore
                 Product product = new Product(ProductName, Category,Description);
 
-                fbs.getFire().collection("Product").add(product).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                fbs.getFire().collection("products").add(product).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Toast.makeText(getActivity(), "Successfully added your Product!", Toast.LENGTH_SHORT).show();
