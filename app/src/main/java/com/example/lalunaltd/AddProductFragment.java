@@ -1,5 +1,6 @@
 package com.example.lalunaltd;
 
+import android.icu.util.ULocale;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -93,8 +94,21 @@ public class AddProductFragment extends Fragment {
     private void connectComponents() {
         fbs = FirebaseServices.getInstance();
         spnrCategory=getView().findViewById(R.id.spnrCategoryAddProduct);
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(), R.layout.spinnerlayout,Categories);
-        adapter.setDropDownViewResource(R.layout.spinnerlayout);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(), R.layout.item_file,Categories);
+        spnrCategory.setAdapter(adapter);
+        spnrCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String value=parent.getItemAtPosition(position).toString();
+                Toast.makeText(getActivity(), value, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        adapter.setDropDownViewResource(R.layout.item_file);
         etProductName=getView().findViewById(R.id.etProductNameAddProduct);
         etDescription=getView().findViewById(R.id.etDescriptionAddProduct);
         btnAdd=getView().findViewById(R.id.btnAddAddProduct);
@@ -104,7 +118,7 @@ public class AddProductFragment extends Fragment {
             public void onClick(View view) {
                 // get data from screen
                 String ProductName = etProductName.getText().toString();
-                String Category = etCategory.getText().toString();
+                String Category=spnrCategory.getSelectedItem().toString();
                 String Description =etDescription.getText().toString();
 
 
