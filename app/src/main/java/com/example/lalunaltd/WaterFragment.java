@@ -21,6 +21,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -104,15 +105,14 @@ public class WaterFragment extends Fragment {
             }
         });
         try {
-            fbs.getFire().collection("Product").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
-                        if(prod.getCategory()=="Water") {
+                         if (prod.getCategory().equals("Water"))
                             prods.add(prod);
-                        }
                     }
 
                     adapter.notifyDataSetChanged();

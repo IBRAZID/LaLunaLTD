@@ -5,6 +5,9 @@ public class Product {
     private String description;
     private String category;
 
+    public Product() {
+    }
+
     public Product(String name, String description, String category) {
         this.name = name;
         this.description = description;

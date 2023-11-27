@@ -96,6 +96,12 @@ public class HomeFragment extends Fragment {
                 gotoIsraeliCansFragment();
             }
         });
+        btnArabicCans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoArabicCansFragment();
+            }
+        });
     }
 
 
@@ -123,6 +129,11 @@ public class HomeFragment extends Fragment {
     private void gotoAddProductFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new AddProductFragment());
+        ft.commit();
+    }
+    public void gotoArabicCansFragment() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new ArabicCansFragment());
         ft.commit();
     }
 }

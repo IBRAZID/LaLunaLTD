@@ -98,16 +98,17 @@ public class ArabicCansFragment extends Fragment {
         rvArabicCans.setHasFixedSize(true);
         rvArabicCans.setLayoutManager(new LinearLayoutManager(getActivity()));
         try {
-            fbs.getFire().collection("Product").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
 
-                        if(prod.getCategory()=="ArabicCans") {
+
+                            if (prod.getCategory().equals("ArabicCans"))
                             prods.add(prod);
-                        }
+
                     }
 
                     adapter.notifyDataSetChanged();

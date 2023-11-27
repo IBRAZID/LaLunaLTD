@@ -97,17 +97,17 @@ public class IsraeliCansFragment extends Fragment {
         rvIsraeliCans.setAdapter(adapter);
         rvIsraeliCans.setHasFixedSize(true);
         rvIsraeliCans.setLayoutManager(new LinearLayoutManager(getActivity()));
-            fbs.getFire().collection("Product").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
 
-                        if(prod.getCategory()=="IsraeliCans") {
+                        if (prod.getCategory().equals("IsraeliCans"))
                             prods.add(prod);
                         }
-                    }
+
 
                     adapter.notifyDataSetChanged();
                 }

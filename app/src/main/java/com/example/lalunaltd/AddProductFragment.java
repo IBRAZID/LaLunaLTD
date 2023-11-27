@@ -126,7 +126,7 @@ public class AddProductFragment extends Fragment {
 
 
                 // add data to firestore
-                Product product = new Product(ProductName, Category,Description);
+                Product product = new Product(ProductName,Description,Category);
 
                 fbs.getFire().collection("products").add(product).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -139,6 +139,8 @@ public class AddProductFragment extends Fragment {
                     public void onFailure(@NonNull Exception e) {
                         Log.e("Failure AddProduct: ", e.getMessage());
                     }
+
+
                 });
 
 
