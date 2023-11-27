@@ -9,6 +9,7 @@
         android:layout_width="327dp"
         android:layout_height="79dp"
         android:layout_weight="1"
+        android:textSize="25dp"
         android:gravity="center_vertical"
         android:text="TextView" />
 
