@@ -1,12 +1,15 @@
 package com.example.lalunaltd;
 
+import android.content.Intent;
 import android.icu.util.ULocale;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.MediaStore;
 import android.util.EventLogTags;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -31,9 +35,12 @@ import com.google.firebase.firestore.DocumentReference;
 public class AddProductFragment extends Fragment {
 
     private FirebaseServices fbs;
+    private static final int GALLERY_REQUEST_CODE = 123;
     private Spinner spnrCategory;
     private EditText etProductName, etCategory,etDescription;
     private Button btnAdd;
+    private Utils utils;
+    private ImageView ivShow;
     String[]Categories={"Select Category...","Water","IsraeliCans","ArabicCans"};
 
     // TODO: Rename parameter arguments, choose names that match
@@ -111,6 +118,13 @@ public class AddProductFragment extends Fragment {
         adapter.setDropDownViewResource(R.layout.item_file);
         etProductName=getView().findViewById(R.id.etProductNameAddProduct);
         etDescription=getView().findViewById(R.id.etDescriptionAddProduct);
+        ivShow = getView().findViewById(R.id.ivShowAddProduct);
+        ivShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGallery();
+            }
+        });
         btnAdd=getView().findViewById(R.id.btnAddAddProduct);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +140,7 @@ public class AddProductFragment extends Fragment {
 
 
                 // add data to firestore
-                Product product = new Product(ProductName,Description,Category);
+                Product product = new Product(ProductName,Description,Category, fbs.getSelectedImageURL().toString());
 
                 fbs.getFire().collection("products").add(product).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -146,6 +160,20 @@ public class AddProductFragment extends Fragment {
 
             }
         });
+    }
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == getActivity().RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            ivShow.setImageURI(selectedImageUri);
+            utils.uploadImage(getActivity(), selectedImageUri);
+        }
     }
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();

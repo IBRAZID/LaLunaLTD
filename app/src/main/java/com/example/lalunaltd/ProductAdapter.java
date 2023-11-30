@@ -34,6 +34,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
+        holder.tvDescription.setText(prod.getDescription());
+
     }
 
     @Override
@@ -43,9 +45,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvName;
+        TextView tvDescription;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName=itemView.findViewById(R.id.tvNameLayoutXml);
+            tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
         }
     }
 }
