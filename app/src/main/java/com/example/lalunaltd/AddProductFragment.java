@@ -33,13 +33,16 @@ import com.google.firebase.firestore.DocumentReference;
  * create an instance of this fragment.
  */
 public class AddProductFragment extends Fragment {
-
-    private FirebaseServices fbs;
     private static final int GALLERY_REQUEST_CODE = 123;
     private Spinner spnrCategory;
-    private EditText etProductName, etCategory,etDescription;
-    private Button btnAdd;
     private Utils utils;
+    private EditText etProductName, etCategory,etDescription;
+
+    private FirebaseServices fbs;
+
+
+    private Button btnAdd;
+
     private ImageView ivShow;
     String[]Categories={"Select Category...","Water","IsraeliCans","ArabicCans"};
 
@@ -102,6 +105,7 @@ public class AddProductFragment extends Fragment {
         fbs = FirebaseServices.getInstance();
         spnrCategory=getView().findViewById(R.id.spnrCategoryAddProduct);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(), R.layout.item_file,Categories);
+        utils = Utils.getInstance();
         spnrCategory.setAdapter(adapter);
         spnrCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
