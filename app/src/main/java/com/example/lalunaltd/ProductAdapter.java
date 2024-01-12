@@ -5,10 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -35,6 +38,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
         holder.tvDescription.setText(prod.getDescription());
+        if (prod.getImage() == null || prod.getImage().isEmpty())
+        {
+            Picasso.get().load(R.drawable.baseline_add_24).into(holder.ivProduct);
+        }
+        else {
+            Picasso.get().load(prod.getImage()).into(holder.ivProduct);
+        }
 
     }
 
@@ -45,9 +55,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvName;
+        ImageView ivProduct;
         TextView tvDescription;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayout);
             tvName=itemView.findViewById(R.id.tvNameLayoutXml);
             tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
         }

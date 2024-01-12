@@ -29,10 +29,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/ivProductPhotoProductLayout"
+                android:layout_width="164dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="3dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/imageButton"
+                app:layout_constraintEnd_toEndOf="@+id/tvNameLayoutXml"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
             <TextView
                 android:id="@+id/tvDescriptionLayoutXml"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="388dp"
+                android:layout_height="46dp"
                 android:layout_weight="1"
                 android:text="TextView"
                 app:layout_constraintBottom_toTopOf="@+id/imageButton"
@@ -42,15 +53,15 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="523dp"
+                android:layout_width="395dp"
+                android:layout_height="83dp"
+                android:layout_marginBottom="522dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/mainBlue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
+                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayout"
                 app:srcCompat="@drawable/baseline_add_50" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
