@@ -1,7 +1,6 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.product;
 
 import android.content.Intent;
-import android.icu.util.ULocale;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.provider.MediaStore;
-import android.util.EventLogTags;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +21,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.lalunaltd.R;
+import com.example.lalunaltd.Utils.FirebaseServices;
+import com.example.lalunaltd.Utils.Utils;
+import com.example.lalunaltd.pages.HomeFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;

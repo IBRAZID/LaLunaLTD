@@ -1,4 +1,4 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.pages;
 
 import android.os.Bundle;
 
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.lalunaltd.R;
+import com.example.lalunaltd.Utils.FirebaseServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 

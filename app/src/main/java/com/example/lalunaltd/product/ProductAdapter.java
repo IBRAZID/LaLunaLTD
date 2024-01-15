@@ -1,22 +1,27 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.product;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lalunaltd.MainActivity;
+import com.example.lalunaltd.R;
+import com.example.lalunaltd.Utils.FirebaseServices;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
     Context context;
+    MainActivity mainAct;
     ArrayList<Product> ProductList;
     private FirebaseServices fbs;
 
@@ -24,6 +29,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         this.context = context;
         this.ProductList = ProductList;
         this.fbs = FirebaseServices.getInstance();
+        this.mainAct = (MainActivity)context;
     }
 
     @NonNull
@@ -38,6 +44,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
         holder.tvDescription.setText(prod.getDescription());
+        holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               mainAct.getArr().add(prod);
+            }
+        });
         if (prod.getImage() == null || prod.getImage().isEmpty())
         {
             Picasso.get().load(R.drawable.baseline_add_24).into(holder.ivProduct);
@@ -56,12 +68,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvName;
         ImageView ivProduct;
+        ImageButton btnAddToCart;
         TextView tvDescription;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayout);
             tvName=itemView.findViewById(R.id.tvNameLayoutXml);
             tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
+            btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayout);
         }
     }
 }

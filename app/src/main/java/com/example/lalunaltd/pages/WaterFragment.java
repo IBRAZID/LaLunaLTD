@@ -1,4 +1,4 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.pages;
 
 import android.os.Bundle;
 
@@ -15,6 +15,10 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.lalunaltd.product.Product;
+import com.example.lalunaltd.product.ProductAdapter;
+import com.example.lalunaltd.R;
+import com.example.lalunaltd.Utils.FirebaseServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -24,15 +28,19 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link IsraeliCansFragment#newInstance} factory method to
+ * Use the {@link WaterFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IsraeliCansFragment extends Fragment {
+public class WaterFragment extends Fragment {
     private ImageButton btnBack;
     private FirebaseServices fbs;
     private ArrayList<Product> prods;
-    private RecyclerView rvIsraeliCans;
+    private RecyclerView rvWater;
     private ProductAdapter adapter;
+
+
+    // TODO: add recyclerview, fbs, adapter, productList,
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +51,7 @@ public class IsraeliCansFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public IsraeliCansFragment() {
+    public WaterFragment() {
         // Required empty public constructor
     }
 
@@ -53,11 +61,11 @@ public class IsraeliCansFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment IsraeliCansFragment.
+     * @return A new instance of fragment WaterFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static IsraeliCansFragment newInstance(String param1, String param2) {
-        IsraeliCansFragment fragment = new IsraeliCansFragment();
+    public static WaterFragment newInstance(String param1, String param2) {
+        WaterFragment fragment = new WaterFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -78,36 +86,37 @@ public class IsraeliCansFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_israeli_cans, container, false);
+        return inflater.inflate(R.layout.fragment_water, container, false);
     }
+
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackIsraeliCans);
+
+        fbs = FirebaseServices.getInstance();
+        prods = new ArrayList<>();
+        rvWater = getView().findViewById(R.id.rvWaterWaterFragment);
+        adapter = new ProductAdapter(getActivity(), prods);
+        rvWater.setAdapter(adapter);
+        rvWater.setHasFixedSize(true);
+        rvWater.setLayoutManager(new LinearLayoutManager(getActivity()));
+        btnBack=getView().findViewById(R.id.btnBackWater);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoHomeFragment();
             }
         });
-        fbs = FirebaseServices.getInstance();
-        prods = new ArrayList<>();
-        rvIsraeliCans = getView().findViewById(R.id.rvIsraeliCansIsraeliCansFragment);
-        adapter = new ProductAdapter(getActivity(), prods);
-        rvIsraeliCans.setAdapter(adapter);
-        rvIsraeliCans.setHasFixedSize(true);
-        rvIsraeliCans.setLayoutManager(new LinearLayoutManager(getActivity()));
+        try {
             fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
-
-                        if (prod.getCategory().equals("IsraeliCans"))
+                         if (prod.getCategory().equals("Water"))
                             prods.add(prod);
-                        }
-
+                    }
 
                     adapter.notifyDataSetChanged();
                 }
@@ -115,9 +124,14 @@ public class IsraeliCansFragment extends Fragment {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(getActivity(), "No data available", Toast.LENGTH_SHORT).show();
-                    Log.e("IsraeliCansFragment", e.getMessage());
+                    Log.e("WaterFragment", e.getMessage());
                 }
             });
+        }
+        catch (Exception ex)
+        {
+            Log.e("", ex.getMessage());
+        }
     }
 
 

@@ -5,8 +5,27 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import com.example.lalunaltd.Utils.FirebaseServices;
+import com.example.lalunaltd.pages.HomeFragment;
+import com.example.lalunaltd.pages.LoginFragment;
+import com.example.lalunaltd.pages.WaterFragment;
+import com.example.lalunaltd.product.AddProductFragment;
+import com.example.lalunaltd.product.Product;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     FirebaseServices fbs;
+    ArrayList<Product> cartArray;
+
+
+    public void setArr(ArrayList<Product> arr) {
+        this.cartArray = arr;
+    }
+
+    public ArrayList<Product> getArr() {
+        return cartArray;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

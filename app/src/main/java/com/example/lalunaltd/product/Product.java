@@ -1,4 +1,4 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.product;
 
 public class Product {
     private String name;

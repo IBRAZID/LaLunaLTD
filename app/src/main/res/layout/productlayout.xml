@@ -35,7 +35,7 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="3dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/imageButton"
+                app:layout_constraintBottom_toTopOf="@+id/btnAddToCartProductLayout"
                 app:layout_constraintEnd_toEndOf="@+id/tvNameLayoutXml"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background" />
@@ -46,13 +46,13 @@
                 android:layout_height="46dp"
                 android:layout_weight="1"
                 android:text="TextView"
-                app:layout_constraintBottom_toTopOf="@+id/imageButton"
+                app:layout_constraintBottom_toTopOf="@+id/btnAddToCartProductLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/btnAddToCartProductLayout"
                 android:layout_width="395dp"
                 android:layout_height="83dp"
                 android:layout_marginBottom="522dp"
