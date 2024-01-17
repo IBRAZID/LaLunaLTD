@@ -1,5 +1,6 @@
 package com.example.lalunaltd.pages;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 
 /**
@@ -19,6 +21,9 @@ import com.example.lalunaltd.R;
  */
 public class CartFragment extends Fragment {
     private ImageButton btnBack;
+    Context context;
+    MainActivity mainAct;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

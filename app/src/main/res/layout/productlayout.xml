@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -24,9 +24,9 @@
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
@@ -36,9 +36,9 @@
                 android:layout_marginTop="8dp"
                 android:text="Product Name"
                 android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayout"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayout" />
 
             <TextView
                 android:id="@+id/tvDescriptionLayoutXml"
@@ -46,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Product Description"
-                app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml" />
 
             <ImageButton
                 android:id="@+id/btnAddToCartProductLayout"
@@ -56,9 +56,9 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/mainBlue"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
                 app:srcCompat="@drawable/baseline_add_50" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
