@@ -3,68 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ivProductPhotoProductLayout"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/tvNameLayoutXml"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="TextView"
-                android:textSize="25dp"
-                app:layout_constraintBottom_toTopOf="@+id/tvDescriptionLayoutXml"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Product Name"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ivProductPhotoProductLayout"
-                android:layout_width="164dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="3dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/btnAddToCartProductLayout"
-                app:layout_constraintEnd_toEndOf="@+id/tvNameLayoutXml"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/tvDescriptionLayoutXml"
-                android:layout_width="388dp"
-                android:layout_height="46dp"
-                android:layout_weight="1"
-                android:text="TextView"
-                app:layout_constraintBottom_toTopOf="@+id/btnAddToCartProductLayout"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Product Description"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageButton
                 android:id="@+id/btnAddToCartProductLayout"
-                android:layout_width="395dp"
-                android:layout_height="83dp"
-                android:layout_marginBottom="522dp"
-                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
                 android:backgroundTint="@color/mainBlue"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayout"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/baseline_add_50" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>
