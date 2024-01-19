@@ -36,19 +36,19 @@
                 android:layout_marginBottom="74dp"
                 android:backgroundTint="#03A9F4"
                 android:text="Water"
-                app:layout_constraintBottom_toTopOf="@+id/btnIsraeliHome"
+                app:layout_constraintBottom_toTopOf="@+id/btnBeveragesHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <Button
-                android:id="@+id/btnIsraeliHome"
+                android:id="@+id/btnBeveragesHome"
                 android:layout_width="202dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="231dp"
                 android:layout_marginBottom="231dp"
                 android:backgroundTint="#03A9F4"
-                android:text="Israeli Cans 330ml"
+                android:text="Beverages"
                 app:layout_constraintBottom_toBottomOf="@+id/tvSignoutHomeFragment"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +48,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               mainAct.getArr().add(prod);
+                mainAct.getCartArray().add(prod);
+                Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
             }
         });
         if (prod.getImage() == null || prod.getImage().isEmpty())

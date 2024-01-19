@@ -28,14 +28,14 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link IsraeliCansFragment#newInstance} factory method to
+ * Use the {@link BeveragesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class IsraeliCansFragment extends Fragment {
+public class BeveragesFragment extends Fragment {
     private ImageButton btnBack;
     private FirebaseServices fbs;
     private ArrayList<Product> prods;
-    private RecyclerView rvIsraeliCans;
+    private RecyclerView rvBeverages;
     private ProductAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -47,7 +47,7 @@ public class IsraeliCansFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public IsraeliCansFragment() {
+    public BeveragesFragment() {
         // Required empty public constructor
     }
 
@@ -60,8 +60,8 @@ public class IsraeliCansFragment extends Fragment {
      * @return A new instance of fragment IsraeliCansFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static IsraeliCansFragment newInstance(String param1, String param2) {
-        IsraeliCansFragment fragment = new IsraeliCansFragment();
+    public static BeveragesFragment newInstance(String param1, String param2) {
+        BeveragesFragment fragment = new BeveragesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,12 +82,12 @@ public class IsraeliCansFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_israeli_cans, container, false);
+        return inflater.inflate(R.layout.fragment_beverages, container, false);
     }
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackIsraeliCans);
+        btnBack=getView().findViewById(R.id.btnBackBeverages);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,11 +96,11 @@ public class IsraeliCansFragment extends Fragment {
         });
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
-        rvIsraeliCans = getView().findViewById(R.id.rvIsraeliCansIsraeliCansFragment);
+        rvBeverages = getView().findViewById(R.id.rvBeveragesFragment);
         adapter = new ProductAdapter(getActivity(), prods);
-        rvIsraeliCans.setAdapter(adapter);
-        rvIsraeliCans.setHasFixedSize(true);
-        rvIsraeliCans.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvBeverages.setAdapter(adapter);
+        rvBeverages.setHasFixedSize(true);
+        rvBeverages.setLayoutManager(new LinearLayoutManager(getActivity()));
             fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -108,7 +108,7 @@ public class IsraeliCansFragment extends Fragment {
                     for (DocumentSnapshot dataSnapshot: queryDocumentSnapshots.getDocuments()){
                         Product prod = dataSnapshot.toObject(Product.class);
 
-                        if (prod.getCategory().equals("IsraeliCans"))
+                        if (prod.getCategory().equals("Beverages"))
                             prods.add(prod);
                         }
 
@@ -119,7 +119,7 @@ public class IsraeliCansFragment extends Fragment {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(getActivity(), "No data available", Toast.LENGTH_SHORT).show();
-                    Log.e("IsraeliCansFragment", e.getMessage());
+                    Log.e("BeveragesFragment", e.getMessage());
                 }
             });
     }

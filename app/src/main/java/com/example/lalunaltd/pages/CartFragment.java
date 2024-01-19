@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,10 @@ import android.widget.ImageButton;
 
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
+import com.example.lalunaltd.product.Product;
+import com.example.lalunaltd.product.ProductAdapter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +29,9 @@ public class CartFragment extends Fragment {
     private ImageButton btnBack;
     Context context;
     MainActivity mainAct;
+    ArrayList<Product> arrCart;
+    RecyclerView rvCart;
+    private ProductAdapter adapter;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -74,6 +83,11 @@ public class CartFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        arrCart= new ArrayList<>();
+
+        rvCart=getView().findViewById(R.id.rvCartCartFragment);
+
+
         btnBack=getView().findViewById(R.id.btnBackArabicCans);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +95,7 @@ public class CartFragment extends Fragment {
                 gotoHomeFragment();
             }
         });
+
     }
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();

@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     FirebaseServices fbs;
     ArrayList<Product> cartArray;
 
+    public ArrayList<Product> getCartArray() {
+        return cartArray;
+    }
 
     public void setArr(ArrayList<Product> arr) {
         this.cartArray = arr;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fbs=FirebaseServices.getInstance();
+        cartArray = new ArrayList<>();
         if(fbs.getAuth().getCurrentUser()==null){
         gotoLoginFragment();
         }

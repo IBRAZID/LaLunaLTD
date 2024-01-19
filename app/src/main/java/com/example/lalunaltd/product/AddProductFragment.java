@@ -46,7 +46,7 @@ public class AddProductFragment extends Fragment {
     private Button btnAdd;
 
     private ImageView ivShow;
-    String[]Categories={"Select Category...","Water","IsraeliCans","ArabicCans"};
+    String[]Categories={"Select Category...","Water","Beverages","ArabicCans"};
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters,     String[]Categories={"Water","IsraeliCans","ArabicCans"};e.g. ARG_ITEM_NUMBER

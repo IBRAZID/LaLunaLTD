@@ -23,7 +23,7 @@ import com.example.lalunaltd.Utils.FirebaseServices;
  */
 public class HomeFragment extends Fragment {
     private FirebaseServices fbs;
-    private Button btnWater,btnIsraelCans,btnArabicCans,btnAdd;
+    private Button btnWater,btnBeverages,btnArabicCans,btnAdd,btnCart;
     private TextView tvSignout;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -71,8 +71,15 @@ public class HomeFragment extends Fragment {
         fbs=FirebaseServices.getInstance();
         btnAdd=getView().findViewById(R.id.btnAddHomeFragment);
         btnWater=getView().findViewById(R.id.btnWaterHome);
-        btnIsraelCans=getView().findViewById(R.id.btnIsraeliHome);
+        btnBeverages=getView().findViewById(R.id.btnBeveragesHome);
         tvSignout=getView().findViewById(R.id.tvSignoutHomeFragment);
+        btnCart=getView().findViewById(R.id.btnCartHomeFragment);
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoCartFragment();
+            }
+        });
         btnArabicCans=getView().findViewById(R.id.btnArabicHome);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,10 +101,10 @@ public class HomeFragment extends Fragment {
                 gotoWaterFragment();
             }
         });
-        btnIsraelCans.setOnClickListener(new View.OnClickListener() {
+        btnBeverages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoIsraeliCansFragment();
+                gotoBeveragesFragment();
             }
         });
         btnArabicCans.setOnClickListener(new View.OnClickListener() {
@@ -125,9 +132,14 @@ public class HomeFragment extends Fragment {
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
         ft.commit();
     }
-    public void gotoIsraeliCansFragment() {
+    private void gotoCartFragment(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new CartFragment());
+        ft.commit();
+    }
+    public void gotoBeveragesFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain,new IsraeliCansFragment());
+        ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
         ft.commit();
     }
     private void gotoAddProductFragment(){
