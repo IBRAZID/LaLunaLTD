@@ -20,7 +20,12 @@ import com.google.firebase.Firebase;
  */
 public class DetailsFragment extends Fragment {
     private static final int PERMISSION_SEND_SMS = 1;
-    private static final int REQUEST_CALL_PERMISSION = 2;   
+    private static final int REQUEST_CALL_PERMISSION = 2;
+    private String name;
+    private String description;
+    private String category;
+    private String image;
+
     private FirebaseServices fbs;
     Button btnBack;
 
