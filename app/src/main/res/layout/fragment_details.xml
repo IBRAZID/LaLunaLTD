@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".product.DetailsFragment"/>
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="352dp"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/ivProductPhotoDetailsFragment"
+                android:layout_width="357dp"
+                android:layout_height="260dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:layout_editor_absoluteX="-2dp"
+                tools:layout_editor_absoluteY="43dp" />
+
+            <TextView
+                android:id="@+id/tvCategoryDetailsFragment"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="308dp" />
+
+            <TextView
+                android:id="@+id/tvDescriptionDetailsFragment"
+                android:layout_width="331dp"
+                android:layout_height="wrap_content"
+                android:text="Product Description"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="332dp" />
+
+            <ImageButton
+                android:id="@+id/btnAddToCartDetailsFragment"
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/mainBlue"
+                app:srcCompat="@drawable/baseline_add_50"
+                tools:layout_editor_absoluteX="-17dp"
+                tools:layout_editor_absoluteY="606dp" />
+
+            <TextView
+                android:id="@+id/tvNameDetailsFragment"
+                android:layout_width="329dp"
+                android:layout_height="53dp"
+                android:text="Product Name"
+                android:gravity="center_vertical"
+                android:textSize="22sp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="-12dp" />
+
+            <TextView
+                android:id="@+id/tvAvgRatingDetailsFragment"
+                android:layout_width="329dp"
+                android:layout_height="53dp"
+                android:gravity="center_vertical"
+                android:text="Average Star Rating:"
+                android:textSize="22sp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="550dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
