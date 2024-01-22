@@ -23,7 +23,7 @@ import com.example.lalunaltd.Utils.FirebaseServices;
  */
 public class HomeFragment extends Fragment {
     private FirebaseServices fbs;
-    private Button btnWater,btnBeverages,btnArabicCans,btnAdd,btnCart;
+    private Button btnWater,btnBeverages, btnSnacks,btnAdd,btnCart;
     private TextView tvSignout;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -80,7 +80,7 @@ public class HomeFragment extends Fragment {
                 gotoCartFragment();
             }
         });
-        btnArabicCans=getView().findViewById(R.id.btnArabicHome);
+        btnSnacks =getView().findViewById(R.id.btnSnacksHome);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
                 gotoBeveragesFragment();
             }
         });
-        btnArabicCans.setOnClickListener(new View.OnClickListener() {
+        btnSnacks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoArabicCansFragment();
@@ -149,7 +149,7 @@ public class HomeFragment extends Fragment {
     }
     public void gotoArabicCansFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain,new ArabicCansFragment());
+        ft.replace(R.id.FrameLayoutMain,new SnacksFragment());
         ft.commit();
     }
 }

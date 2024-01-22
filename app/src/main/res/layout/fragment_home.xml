@@ -18,12 +18,12 @@
             tools:layout_editor_absoluteY="-30dp">
 
             <Button
-                android:id="@+id/btnArabicHome"
+                android:id="@+id/btnSnacksHome"
                 android:layout_width="194dp"
                 android:layout_height="89dp"
                 android:layout_marginBottom="25dp"
                 android:backgroundTint="#03A9F4"
-                android:text="Arabic Cans 330ml"
+                android:text="Snacks"
                 app:layout_constraintBottom_toTopOf="@+id/btnAddHomeFragment"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -125,7 +125,7 @@
                 android:text="Cart"
                 app:layout_constraintBottom_toTopOf="@+id/textView6"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnArabicHome"
+                app:layout_constraintStart_toEndOf="@+id/btnSnacksHome"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

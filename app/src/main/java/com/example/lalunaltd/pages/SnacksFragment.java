@@ -28,14 +28,14 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ArabicCansFragment#newInstance} factory method to
+ * Use the {@link SnacksFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ArabicCansFragment extends Fragment {
+public class SnacksFragment extends Fragment {
     private ImageButton btnBack;
     private FirebaseServices fbs;
     private ArrayList<Product> prods;
-    private RecyclerView rvArabicCans;
+    private RecyclerView rvSnacks;
     private ProductAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -47,7 +47,7 @@ public class ArabicCansFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ArabicCansFragment() {
+    public SnacksFragment() {
         // Required empty public constructor
     }
 
@@ -60,8 +60,8 @@ public class ArabicCansFragment extends Fragment {
      * @return A new instance of fragment ArabicCansFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ArabicCansFragment newInstance(String param1, String param2) {
-        ArabicCansFragment fragment = new ArabicCansFragment();
+    public static SnacksFragment newInstance(String param1, String param2) {
+        SnacksFragment fragment = new SnacksFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -82,12 +82,12 @@ public class ArabicCansFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_arabic_cans, container, false);
+        return inflater.inflate(R.layout.fragment_snacks, container, false);
     }
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackArabicCans);
+        btnBack=getView().findViewById(R.id.btnBackSnacksFragment);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,11 +96,11 @@ public class ArabicCansFragment extends Fragment {
         });
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
-        rvArabicCans = getView().findViewById(R.id.rvArabicCansArabicCansFragment);
+        rvSnacks = getView().findViewById(R.id.rvSnacksSnacksFragment);
         adapter = new ProductAdapter(getActivity(), prods);
-        rvArabicCans.setAdapter(adapter);
-        rvArabicCans.setHasFixedSize(true);
-        rvArabicCans.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvSnacks.setAdapter(adapter);
+        rvSnacks.setHasFixedSize(true);
+        rvSnacks.setLayoutManager(new LinearLayoutManager(getActivity()));
         try {
             fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
@@ -110,7 +110,7 @@ public class ArabicCansFragment extends Fragment {
                         Product prod = dataSnapshot.toObject(Product.class);
 
 
-                            if (prod.getCategory().equals("ArabicCans")) {
+                            if (prod.getCategory().equals("Snacks")) {
                                 prods.add(prod);
                             }
 
@@ -122,7 +122,7 @@ public class ArabicCansFragment extends Fragment {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(getActivity(), "No data available", Toast.LENGTH_SHORT).show();
-                    Log.e("ArabicCansFragment", e.getMessage());
+                    Log.e("SnacksFragment", e.getMessage());
                 }
             });
         }
