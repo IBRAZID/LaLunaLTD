@@ -67,7 +67,7 @@
                 android:layout_width="326dp"
                 android:layout_height="35dp"
                 android:text="Price:"
-                android:textSize="20dp"
+                android:textSize="21dp"
                 android:gravity="center_vertical"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="281dp" />
