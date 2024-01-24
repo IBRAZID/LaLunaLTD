@@ -38,7 +38,7 @@ public class AddProductFragment extends Fragment {
     private static final int GALLERY_REQUEST_CODE = 123;
     private Spinner spnrCategory;
     private Utils utils;
-    private EditText etProductName, etCategory,etDescription;
+    private EditText etProductName, etCategory,etDescription,etPrice;
 
     private FirebaseServices fbs;
 
@@ -122,8 +122,9 @@ public class AddProductFragment extends Fragment {
             }
         });
         adapter.setDropDownViewResource(R.layout.item_file);
-        etProductName=getView().findViewById(R.id.etProductNameAddProduct);
+        etProductName=getView().findViewById(R.id.etPriceAddProduct);
         etDescription=getView().findViewById(R.id.etDescriptionAddProduct);
+        etPrice=getView().findViewById(R.id.etPriceAddProduct);
         ivShow = getView().findViewById(R.id.ivShowAddProduct);
         ivShow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,13 +141,14 @@ public class AddProductFragment extends Fragment {
                 String ProductName = etProductName.getText().toString();
                 String Category=spnrCategory.getSelectedItem().toString();
                 String Description =etDescription.getText().toString();
+                Integer Price = Integer.parseInt(etPrice.getText().toString());
 
 
                 // data validation
 
 
                 // add data to firestore
-                Product product = new Product(ProductName,Description,Category, fbs.getSelectedImageURL().toString());
+                Product product = new Product(ProductName,Description,Category, fbs.getSelectedImageURL().toString(),Price);
 
                 fbs.getFire().collection("products").add(product).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

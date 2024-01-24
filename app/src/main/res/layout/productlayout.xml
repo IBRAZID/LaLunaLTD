@@ -15,8 +15,8 @@
         app:cardElevation="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="351dp"
+            android:layout_height="match_parent"
             android:padding="16dp">
 
             <ImageView
@@ -54,12 +54,23 @@
                 android:id="@+id/btnAddToCartProductLayout"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="56dp"
                 android:backgroundTint="@color/mainBlue"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
                 app:srcCompat="@drawable/baseline_add_50" />
+
+            <TextView
+                android:id="@+id/tvPriceLayoutXml"
+                android:layout_width="326dp"
+                android:layout_height="35dp"
+                android:text="Price:"
+                android:textSize="20dp"
+                android:gravity="center_vertical"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="281dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
