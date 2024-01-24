@@ -58,21 +58,21 @@
                 android:id="@+id/tvNameDetailsFragment"
                 android:layout_width="329dp"
                 android:layout_height="53dp"
-                android:text="Product Name"
                 android:gravity="center_vertical"
+                android:text="Product Name"
                 android:textSize="22sp"
                 tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="-12dp" />
+                tools:layout_editor_absoluteY="-11dp" />
 
             <TextView
-                android:id="@+id/tvAvgRatingDetailsFragment"
+                android:id="@+id/tvPriceDetailsFragment"
                 android:layout_width="329dp"
                 android:layout_height="53dp"
                 android:gravity="center_vertical"
-                android:text="Average Star Rating:"
+                android:text="Price:"
                 android:textSize="22sp"
                 tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="550dp" />
+                tools:layout_editor_absoluteY="557dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

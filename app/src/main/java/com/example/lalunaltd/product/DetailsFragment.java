@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
@@ -21,10 +23,10 @@ import com.google.firebase.Firebase;
 public class DetailsFragment extends Fragment {
     private static final int PERMISSION_SEND_SMS = 1;
     private static final int REQUEST_CALL_PERMISSION = 2;
-    private String name;
-    private String description;
-    private String category;
-    private String image;
+    private TextView tvName;
+    private TextView tvDescription;
+    private TextView tvCategory;
+    private ImageView ivImage;
 
     private FirebaseServices fbs;
     Button btnBack;
@@ -75,4 +77,20 @@ public class DetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_details, container, false);
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        init();
+
+
+    }
+
+    private void init() {
+        tvName=getView().findViewById(R.id.tvNameDetailsFragment);
+        tvCategory=getView().findViewById(R.id.tvCategoryDetailsFragment);
+        tvDescription=getView().findViewById(R.id.tvDescriptionDetailsFragment);
+        ivImage=getView().findViewById(R.id.ivProductPhotoDetailsFragment);
+
+    }
+
 }
