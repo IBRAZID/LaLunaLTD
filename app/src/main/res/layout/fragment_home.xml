@@ -19,9 +19,9 @@
 
             <Button
                 android:id="@+id/btnSnacksHome"
-                android:layout_width="194dp"
-                android:layout_height="89dp"
-                android:layout_marginBottom="25dp"
+                android:layout_width="200dp"
+                android:layout_height="85dp"
+                android:layout_marginBottom="69dp"
                 android:backgroundTint="#03A9F4"
                 android:text="Snacks"
                 app:layout_constraintBottom_toTopOf="@+id/btnAddHomeFragment"
@@ -32,27 +32,25 @@
                 android:id="@+id/btnWaterHome"
                 android:layout_width="200dp"
                 android:layout_height="82dp"
-                android:layout_marginTop="74dp"
-                android:layout_marginBottom="74dp"
+                android:layout_marginTop="46dp"
                 android:backgroundTint="#03A9F4"
                 android:text="Water"
-                app:layout_constraintBottom_toTopOf="@+id/btnBeveragesHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <Button
                 android:id="@+id/btnBeveragesHome"
                 android:layout_width="202dp"
                 android:layout_height="80dp"
-                android:layout_marginTop="231dp"
-                android:layout_marginBottom="231dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="49dp"
                 android:backgroundTint="#03A9F4"
                 android:text="Beverages"
-                app:layout_constraintBottom_toBottomOf="@+id/tvSignoutHomeFragment"
+                app:layout_constraintBottom_toTopOf="@+id/btnSnacksHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/btnWaterHome" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -100,7 +98,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="14dp"
                 android:background="@color/cardview_dark_background"
                 android:backgroundTint="#03A9F4"
                 android:gravity="center_vertical"
@@ -115,9 +113,8 @@
 
             <Button
                 android:id="@+id/btnCartHomeFragment"
-                android:layout_width="0dp"
+                android:layout_width="101dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="5dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="8dp"
@@ -125,7 +122,6 @@
                 android:text="Cart"
                 app:layout_constraintBottom_toTopOf="@+id/textView6"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnSnacksHome"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -144,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="1dp"
-                android:layout_marginBottom="98dp"
+                android:layout_marginBottom="97dp"
                 android:backgroundTint="@color/mainBlue"
                 android:text="Add"
                 app:layout_constraintBottom_toBottomOf="parent"

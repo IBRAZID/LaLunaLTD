@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
+        holder.tvPrice.setText(prod.getPrice());
         holder.tvDescription.setText(prod.getDescription());
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,15 +69,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvName;
+        TextView tvPrice;
         ImageView ivProduct;
         ImageButton btnAddToCart;
         TextView tvDescription;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayout);
+            ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayoutXml);
             tvName=itemView.findViewById(R.id.tvNameLayoutXml);
+            tvPrice=itemView.findViewById(R.id.tvPriceLayoutXml);
             tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
-            btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayout);
+            btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayoutXml);
         }
     }
 }

@@ -20,7 +20,7 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/ivProductPhotoProductLayout"
+                android:id="@+id/ivProductPhotoProductLayoutXml"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
@@ -38,7 +38,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayoutXml" />
 
             <TextView
                 android:id="@+id/tvDescriptionLayoutXml"
@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml" />
 
             <ImageButton
-                android:id="@+id/btnAddToCartProductLayout"
+                android:id="@+id/btnAddToCartProductLayoutXml"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="56dp"

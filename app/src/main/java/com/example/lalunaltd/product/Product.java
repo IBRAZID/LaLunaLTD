@@ -24,6 +24,7 @@ public class Product implements Parcelable {
     }
 
 
+
     protected Product(Parcel in) {
         name = in.readString();
         description = in.readString();
@@ -65,6 +66,14 @@ public class Product implements Parcelable {
 
     public String getImage() {
         return image;
+    }
+
+    public Integer getPrice() {
+        return Price;
+    }
+
+    public void setPrice(Integer price) {
+        Price = price;
     }
 
     public void setImage(String image) {

@@ -122,7 +122,7 @@ public class AddProductFragment extends Fragment {
             }
         });
         adapter.setDropDownViewResource(R.layout.item_file);
-        etProductName=getView().findViewById(R.id.etPriceAddProduct);
+        etProductName=getView().findViewById(R.id.etNameAddProduct);
         etDescription=getView().findViewById(R.id.etDescriptionAddProduct);
         etPrice=getView().findViewById(R.id.etPriceAddProduct);
         ivShow = getView().findViewById(R.id.ivShowAddProduct);
