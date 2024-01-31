@@ -43,7 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
-        holder.tvPrice.setText(prod.getPrice());
+        holder.tvPrice.setText(String.valueOf(prod.getPrice()));
         holder.tvDescription.setText(prod.getDescription());
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
