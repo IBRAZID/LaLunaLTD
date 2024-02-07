@@ -103,7 +103,7 @@ public class DetailsFragment extends Fragment {
                 // Now you can use 'data' as needed in FragmentB.
                 tvDescription.setText(prod.getDescription());
                 tvName.setText(prod.getName());
-                tvPrice.setText(prod.getPrice());
+                tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
                 tvCategory.setText(prod.getCategory().toString());
                 if (prod.getImage() == null || prod.getImage() .isEmpty())
                 {

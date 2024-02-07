@@ -21,58 +21,74 @@
 
             <ImageView
                 android:id="@+id/ivProductPhotoDetailsFragment"
-                android:layout_width="357dp"
-                android:layout_height="260dp"
+                android:layout_width="313dp"
+                android:layout_height="251dp"
+                android:layout_marginBottom="16dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_launcher_background"
-                tools:layout_editor_absoluteX="-2dp"
-                tools:layout_editor_absoluteY="43dp" />
+                app:layout_constraintBottom_toTopOf="@+id/tvCategoryDetailsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNameDetailsFragment"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/tvCategoryDetailsFragment"
-                android:layout_width="331dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginEnd="17dp"
+                android:layout_marginBottom="14dp"
                 android:text="Category"
                 android:textSize="18sp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="308dp" />
+                app:layout_constraintBottom_toTopOf="@+id/tvDescriptionDetailsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoDetailsFragment" />
 
             <TextView
                 android:id="@+id/tvDescriptionDetailsFragment"
-                android:layout_width="331dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="201dp"
                 android:text="Product Description"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="332dp" />
-
-            <ImageButton
-                android:id="@+id/btnAddToCartDetailsFragment"
-                android:layout_width="360dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/mainBlue"
-                app:srcCompat="@drawable/baseline_add_50"
-                tools:layout_editor_absoluteX="-17dp"
-                tools:layout_editor_absoluteY="606dp" />
+                app:layout_constraintBottom_toTopOf="@+id/tvPriceDetailsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCategoryDetailsFragment" />
 
             <TextView
                 android:id="@+id/tvNameDetailsFragment"
-                android:layout_width="329dp"
-                android:layout_height="53dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
                 android:text="Product Name"
                 android:textSize="22sp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="-11dp" />
+                app:layout_constraintBottom_toTopOf="@+id/ivProductPhotoDetailsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvPriceDetailsFragment"
-                android:layout_width="329dp"
-                android:layout_height="53dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="18dp"
                 android:gravity="center_vertical"
                 android:text="Price:"
                 android:textSize="22sp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="557dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionDetailsFragment" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
