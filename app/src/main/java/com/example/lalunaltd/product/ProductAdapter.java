@@ -1,6 +1,7 @@
 package com.example.lalunaltd.product;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lalunaltd.MainActivity;
@@ -24,12 +26,30 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     MainActivity mainAct;
     ArrayList<Product> ProductList;
     private FirebaseServices fbs;
+    private ProductAdapter.OnItemClickListener itemClickListener;
+
 
     public ProductAdapter(Context context, ArrayList<Product> ProductList) {
         this.context = context;
         this.ProductList = ProductList;
         this.fbs = FirebaseServices.getInstance();
         this.mainAct = (MainActivity)context;
+
+        this.itemClickListener = new ProductAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                /*
+                String selectedItem = filteredList.get(position).getNameCar();
+                Toast.makeText(getActivity(), "Clicked: " + selectedItem, Toast.LENGTH_SHORT).show(); */
+                Bundle args = new Bundle();
+                args.putParcelable("car", ProductList.get(position)); // or use Parcelable for better performance
+                DetailsFragment cd = new DetailsFragment();
+                cd.setArguments(args);
+                FragmentTransaction ft= ((MainActivity)context).getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.FrameLayoutMain,cd);
+                ft.commit();
+            }
+        };
     }
 
     @NonNull
@@ -43,7 +63,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
-        holder.tvPrice.setText(String.valueOf(prod.getPrice()));
+        holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
         holder.tvDescription.setText(prod.getDescription());
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +72,31 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        holder.tvName.setOnClickListener(v -> {
+            if (itemClickListener != null) {
+                itemClickListener.onItemClick(position);
+            }
+        });
+
+        holder.tvPrice.setOnClickListener(v -> {
+            if (itemClickListener != null) {
+                itemClickListener.onItemClick(position);
+            }
+        });
+
+        holder.tvDescription.setOnClickListener(v -> {
+            if (itemClickListener != null) {
+                itemClickListener.onItemClick(position);
+            }
+        });
+
+        holder.ivProduct.setOnClickListener(v -> {
+            if (itemClickListener != null) {
+                itemClickListener.onItemClick(position);
+            }
+        });
+
         if (prod.getImage() == null || prod.getImage().isEmpty())
         {
             Picasso.get().load(R.drawable.baseline_add_24).into(holder.ivProduct);
@@ -81,6 +126,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
             btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayoutXml);
         }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(ProductAdapter.OnItemClickListener listener) {
+        this.itemClickListener = listener;
     }
 }
 

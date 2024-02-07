@@ -66,11 +66,12 @@
                 android:id="@+id/tvPriceLayoutXml"
                 android:layout_width="326dp"
                 android:layout_height="35dp"
+                android:gravity="center_vertical"
                 android:text="Price:"
                 android:textSize="21dp"
-                android:gravity="center_vertical"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="281dp" />
+                app:layout_constraintBottom_toTopOf="@+id/btnAddToCartProductLayoutXml"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
+                tools:layout_editor_absoluteX="0dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
