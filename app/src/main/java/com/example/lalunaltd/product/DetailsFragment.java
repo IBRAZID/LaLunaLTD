@@ -3,16 +3,22 @@
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
+import com.example.lalunaltd.pages.BeveragesFragment;
+import com.example.lalunaltd.pages.HomeFragment;
+import com.example.lalunaltd.pages.SnacksFragment;
+import com.example.lalunaltd.pages.WaterFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,9 +36,10 @@ public class DetailsFragment extends Fragment {
     private TextView tvPrice;
     private TextView tvCategory;
     private ImageView ivImage;
+    private ImageButton btnBack;
     private ArrayList<Product> ProductList;
     private FirebaseServices fbs;
-    Button btnBack;
+
     Product prod;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -95,6 +102,8 @@ public class DetailsFragment extends Fragment {
         tvDescription=getView().findViewById(R.id.tvDescriptionDetailsFragment);
         ivImage=getView().findViewById(R.id.ivProductPhotoDetailsFragment);
         tvPrice=getView().findViewById(R.id.tvPriceDetailsFragment);
+        btnBack=getView().findViewById(R.id.btnBackDetailsFragment);
+
         Bundle args = getArguments();
         if (args != null) {
             prod = args.getParcelable("car");
@@ -112,12 +121,43 @@ public class DetailsFragment extends Fragment {
                 else {
                     Picasso.get().load(prod.getImage()).into(ivImage);
                 }
+                btnBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (prod.getCategory().equals("Beverages"))
+                            gotoBeveragesFragment();
+                        else if (prod.getCategory().equals("Snacks"))
+                            gotoSnacksFragment();
+                        else if (prod.getCategory().equals("Water"))
+                            gotoWaterFragment();
+                        else gotoHomeFragment();
+
+
+                    }
+                });
             }
         }
 
 
     }
-
-
-
-}
+              public void gotoSnacksFragment() {
+                  FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+                  ft.replace(R.id.FrameLayoutMain,new SnacksFragment());
+                  ft.commit();
+              }
+              public void gotoWaterFragment() {
+                  FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+                  ft.replace(R.id.FrameLayoutMain,new WaterFragment());
+                  ft.commit();
+              }
+                  public void gotoBeveragesFragment() {
+                  FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+                  ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
+                  ft.commit();
+              }
+              private void gotoHomeFragment(){
+                  FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                  ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+                  ft.commit();
+              }
+    }

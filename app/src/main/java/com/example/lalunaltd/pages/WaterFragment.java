@@ -96,10 +96,6 @@ public class WaterFragment extends Fragment {
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
         rvWater = getView().findViewById(R.id.rvWaterWaterFragment);
-        adapter = new ProductAdapter(getActivity(), prods);
-        rvWater.setAdapter(adapter);
-        rvWater.setHasFixedSize(true);
-        rvWater.setLayoutManager(new LinearLayoutManager(getActivity()));
         btnBack=getView().findViewById(R.id.btnBackWater);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

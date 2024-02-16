@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -12,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.lalunaltd.CartAdapter;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
+import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.product.Product;
 import com.example.lalunaltd.product.ProductAdapter;
 
@@ -26,11 +29,12 @@ import java.util.ArrayList;
  */
 public class CartFragment extends Fragment {
     private ImageButton btnBack;
+    FirebaseServices fbs;
     Context context;
     MainActivity mainAct;
-    ArrayList<Product> arrCart;
+    ArrayList<Product> CartArr;
     RecyclerView rvCart;
-    private ProductAdapter adapter;
+    private CartAdapter adapter;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -82,18 +86,25 @@ public class CartFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        arrCart= new ArrayList<>();
 
-        rvCart=getView().findViewById(R.id.rvCartCartFragment);
-
-
-        btnBack=getView().findViewById(R.id.btnBackSnacksFragment);
+        fbs = FirebaseServices.getInstance();
+        CartArr = new ArrayList<>();
+        rvCart = getView().findViewById(R.id.rvCartCartFragment);
+        btnBack=getView().findViewById(R.id.btnBackCartFragment);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoHomeFragment();
             }
         });
+        ((MainActivity)getActivity()).getCartArray();
+        adapter = new ProductAdapter(getActivity(), CartArr);
+        rvCart.setAdapter(adapter);
+        rvCart.setHasFixedSize(true);
+        rvCart.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+
 
     }
     private void gotoHomeFragment(){

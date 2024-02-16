@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseServices fbs;
     ArrayList<Product> cartArray;
 
+
     public ArrayList<Product> getCartArray() {
         return cartArray;
     }

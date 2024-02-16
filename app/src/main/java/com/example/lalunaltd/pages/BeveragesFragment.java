@@ -87,7 +87,7 @@ public class BeveragesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackBeverages);
+        btnBack=getView().findViewById(R.id.btnBackDetailsFragment);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
