@@ -13,12 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.example.lalunaltd.CartAdapter;
+import com.example.lalunaltd.Utils.CartAdapter;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.product.Product;
-import com.example.lalunaltd.product.ProductAdapter;
 
 import java.util.ArrayList;
 
@@ -98,7 +97,7 @@ public class CartFragment extends Fragment {
             }
         });
         ((MainActivity)getActivity()).getCartArray();
-        adapter = new ProductAdapter(getActivity(), CartArr);
+        adapter = new CartAdapter(getActivity(), CartArr);
         rvCart.setAdapter(adapter);
         rvCart.setHasFixedSize(true);
         rvCart.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -103,6 +103,11 @@ public class WaterFragment extends Fragment {
                 gotoHomeFragment();
             }
         });
+
+        adapter = new ProductAdapter(getActivity(), prods);
+        rvWater.setAdapter(adapter);
+        rvWater.setHasFixedSize(true);
+        rvWater.setLayoutManager(new LinearLayoutManager(getActivity()));
         try {
             fbs.getFire().collection("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override

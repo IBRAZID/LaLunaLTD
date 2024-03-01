@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        gotoHomeFragment();
         setContentView(R.layout.activity_main);
         fbs=FirebaseServices.getInstance();
         cartArray = new ArrayList<>();
