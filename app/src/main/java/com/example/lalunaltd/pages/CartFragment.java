@@ -96,7 +96,7 @@ public class CartFragment extends Fragment {
                 gotoHomeFragment();
             }
         });
-        ((MainActivity)getActivity()).getCartArray();
+        CartArr = ((MainActivity)getActivity()).getCartArray();
         adapter = new CartAdapter(getActivity(), CartArr);
         rvCart.setAdapter(adapter);
         rvCart.setHasFixedSize(true);
