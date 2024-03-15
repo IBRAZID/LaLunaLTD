@@ -25,12 +25,13 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/tvNameLayoutXml"
+                android:id="@+id/tvNameProductLayoutXml"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -41,14 +42,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/ivProductPhotoProductLayoutXml" />
 
             <TextView
-                android:id="@+id/tvDescriptionLayoutXml"
+                android:id="@+id/tvDescriptionProductLayoutXml"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Product Description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNameLayoutXml" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNameProductLayoutXml" />
 
             <ImageButton
                 android:id="@+id/btnAddToCartProductLayoutXml"
@@ -59,18 +60,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionProductLayoutXml"
                 app:srcCompat="@drawable/baseline_add_50" />
 
             <TextView
-                android:id="@+id/tvPriceLayoutXml"
+                android:id="@+id/tvPriceProductLayoutXml"
                 android:layout_width="326dp"
                 android:layout_height="35dp"
                 android:gravity="center_vertical"
                 android:text="Price:"
                 android:textSize="21dp"
                 app:layout_constraintBottom_toTopOf="@+id/btnAddToCartProductLayoutXml"
-                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionLayoutXml"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescriptionProductLayoutXml"
                 tools:layout_editor_absoluteX="0dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

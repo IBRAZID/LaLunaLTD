@@ -6,7 +6,7 @@ public class ItemInOrder {
 
     public ItemInOrder(String productId) {
         this.productId = productId;
-        this.quantity = 0;
+        this.quantity = 1;
     }
 
     public String getProductId() {

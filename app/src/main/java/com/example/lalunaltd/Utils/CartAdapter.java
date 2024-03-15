@@ -63,7 +63,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         Product prod = CartProductList.get(position);
         holder.tvName.setText(prod.getName());
             holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
-        holder.tvDescription.setText(prod.getDescription());
+      //  holder.tvDescription.setText(prod.getDescription());
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,11 +86,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             }
         });
 
-        holder.tvDescription.setOnClickListener(v -> {
-            if (itemClickListener != null) {
-                itemClickListener.onItemClick(position);
-            }
-        });
+//        holder.tvDescription.setOnClickListener(v -> {
+//            if (itemClickListener != null) {
+//                itemClickListener.onItemClick(position);
+//            }
+//        });
 
         holder.ivProduct.setOnClickListener(v -> {
             if (itemClickListener != null) {
@@ -118,14 +118,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         TextView tvPrice;
         ImageView ivProduct;
         ImageButton btnAddToCart;
-        TextView tvDescription;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayoutXml);
-            tvName=itemView.findViewById(R.id.tvNameLayoutXml);
-            tvPrice=itemView.findViewById(R.id.tvPriceLayoutXml);
-            tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
-            btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayoutXml);
+            ivProduct=itemView.findViewById(R.id.ivProductPhotoCartLayoutXml);
+            tvName=itemView.findViewById(R.id.tvNameCartLayoutXml);
+            tvPrice=itemView.findViewById(R.id.tvPriceCartLayoutXml);
+            btnAddToCart=itemView.findViewById(R.id.btnAddToCartCartLayoutXml);
         }
     }
 

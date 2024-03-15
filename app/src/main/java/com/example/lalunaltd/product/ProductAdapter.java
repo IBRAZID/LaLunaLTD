@@ -64,7 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
-
+        Order order =mainAct.getOrder();
         ArrayList<Product> CartArr=mainAct.getCartArray();
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
@@ -73,7 +73,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean doesExist=false;
+                for(ItemInOrder i : order.getItems())
+                {
+                    if (prod.getProductId().equals(i.getProductId()))
+                    {
+                        i.setQuantity(i.getQuantity()+1);
+                        break;
+                    }
+                    else {
+                        ItemInOrder item=new ItemInOrder(i.getProductId());
+                        order.getItems().add(item);
+                    }
+
+                }
+
+
+
+
                 /* TODO: if exists: check if product is already in orderitem arraylist
                     for(ItemInOrder i : order.GetItemInOrdersList())
                     {
@@ -91,23 +107,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 * */
 
 
-                //ItemInOrder item =new ItemInOrder(prod.getProductId());
-                //mainAct.getCartArray().add(prod);
-                for (Product i:CartArr ){
-                   Product p= CartArr.get(position) ;
-                   if (p.getProductId().equals(prod));
-                    {
-                        doesExist=true;
-                        break;
-                    }
-                }
-                if (doesExist==true)
-                {
-                    item.setQuantity(item.getQuantity()+1);
-                }
-                else {
 
-                }
+
+
 
                 Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
             }
@@ -161,9 +163,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayoutXml);
-            tvName=itemView.findViewById(R.id.tvNameLayoutXml);
-            tvPrice=itemView.findViewById(R.id.tvPriceLayoutXml);
-            tvDescription=itemView.findViewById(R.id.tvDescriptionLayoutXml);
+            tvName=itemView.findViewById(R.id.tvNameProductLayoutXml);
+            tvPrice=itemView.findViewById(R.id.tvPriceProductLayoutXml);
+            tvDescription=itemView.findViewById(R.id.tvDescriptionProductLayoutXml);
             btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayoutXml);
         }
     }
