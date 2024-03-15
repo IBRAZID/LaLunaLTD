@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lalunaltd.Classes.ItemInOrder;
+import com.example.lalunaltd.Classes.Order;
+import com.example.lalunaltd.Classes.Product;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
@@ -61,6 +64,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
+
+        ArrayList<Product> CartArr=mainAct.getCartArray();
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
         holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
@@ -68,7 +73,42 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainAct.getCartArray().add(prod);
+                boolean doesExist=false;
+                /* TODO: if exists: check if product is already in orderitem arraylist
+                    for(ItemInOrder i : order.GetItemInOrdersList())
+                    {
+                       if (prod.getId().equals(i.getProductId()))
+                       {
+                          i.setQuant....
+                       }
+                       else
+                       {
+                          .....
+                       }
+                    }
+
+                *
+                * */
+
+
+                //ItemInOrder item =new ItemInOrder(prod.getProductId());
+                //mainAct.getCartArray().add(prod);
+                for (Product i:CartArr ){
+                   Product p= CartArr.get(position) ;
+                   if (p.getProductId().equals(prod));
+                    {
+                        doesExist=true;
+                        break;
+                    }
+                }
+                if (doesExist==true)
+                {
+                    item.setQuantity(item.getQuantity()+1);
+                }
+                else {
+
+                }
+
                 Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
             }
         });

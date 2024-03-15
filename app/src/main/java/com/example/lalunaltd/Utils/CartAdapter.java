@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.product.DetailsFragment;
-import com.example.lalunaltd.product.Product;
+import com.example.lalunaltd.Classes.Product;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull CartAdapter.MyViewHolder holder, int position) {
         Product prod = CartProductList.get(position);
         holder.tvName.setText(prod.getName());
-        holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
+            holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
         holder.tvDescription.setText(prod.getDescription());
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override

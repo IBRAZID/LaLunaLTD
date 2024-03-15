@@ -17,7 +17,7 @@ import com.example.lalunaltd.Utils.CartAdapter;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
-import com.example.lalunaltd.product.Product;
+import com.example.lalunaltd.Classes.Product;
 
 import java.util.ArrayList;
 
@@ -85,7 +85,11 @@ public class CartFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
+        Integer Bill =0;
+//        for(ItemInOrder i : orders)
+//        {
+//            if (i.GetProductId().equals())
+//        }
         fbs = FirebaseServices.getInstance();
         CartArr = new ArrayList<>();
         rvCart = getView().findViewById(R.id.rvCartCartFragment);

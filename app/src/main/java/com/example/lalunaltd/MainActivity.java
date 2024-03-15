@@ -10,7 +10,7 @@ import com.example.lalunaltd.pages.HomeFragment;
 import com.example.lalunaltd.pages.LoginFragment;
 import com.example.lalunaltd.pages.WaterFragment;
 import com.example.lalunaltd.product.AddProductFragment;
-import com.example.lalunaltd.product.Product;
+import com.example.lalunaltd.Classes.Product;
 
 import java.util.ArrayList;
 

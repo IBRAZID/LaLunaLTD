@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.lalunaltd.product.Product;
+import com.example.lalunaltd.Classes.Product;
 import com.example.lalunaltd.product.ProductAdapter;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;

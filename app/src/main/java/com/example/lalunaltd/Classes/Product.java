@@ -1,9 +1,11 @@
-package com.example.lalunaltd.product;
+package com.example.lalunaltd.Classes;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+
+import java.util.UUID;
 
 public class Product implements Parcelable {
     private String name;
@@ -11,16 +13,18 @@ public class Product implements Parcelable {
     private String category;
     private Integer Price;
     private String image;
+    private String productId ;
 
     public Product() {
     }
 
-    public Product(String name, String description, String category, String image,Integer Price) {
+    public Product(String name, String description, String category, String image,Integer Price,String productId) {
         this.name = name;
         this.description = description;
         this.category = category;
         this.image = image;
         this.Price=Price;
+        this.productId = String.valueOf(UUID.randomUUID());
     }
 
 
@@ -30,6 +34,7 @@ public class Product implements Parcelable {
         description = in.readString();
         category = in.readString();
         image = in.readString();
+
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -107,4 +112,7 @@ public class Product implements Parcelable {
         dest.writeString(image);
     }
 
+    public String getProductId() {
+        return productId;
+    }
 }
