@@ -3,9 +3,11 @@ package com.example.lalunaltd.Classes;
 public class ItemInOrder {
         private String productId;
         private Integer quantity;
+        private Product prod;
 
-    public ItemInOrder(String productId) {
+    public ItemInOrder(String productId,Product prod) {
         this.productId = productId;
+        this.prod=prod;
         this.quantity = 1;
     }
 
@@ -25,4 +27,11 @@ public class ItemInOrder {
         this.quantity = quantity;
     }
 
+    public Product getProd() {
+        return prod;
+    }
+
+    public void setProd(Product prod) {
+        this.prod = prod;
+    }
 }

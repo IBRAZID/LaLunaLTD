@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.product.DetailsFragment;
@@ -23,12 +24,12 @@ import java.util.ArrayList;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
     Context context;
     MainActivity mainAct;
-    ArrayList<Product> CartProductList;
+    ArrayList<ItemInOrder> CartProductList;
     private FirebaseServices fbs;
     private CartAdapter.OnItemClickListener itemClickListener;
 
 
-    public CartAdapter(Context context, ArrayList<Product> ProductList) {
+    public CartAdapter(Context context, ArrayList<ItemInOrder> ProductList) {
         this.context = context;
         this.CartProductList = ProductList;
         this.fbs = FirebaseServices.getInstance();
@@ -41,7 +42,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 String selectedItem = filteredList.get(position).getNameCar();
                 Toast.makeText(getActivity(), "Clicked: " + selectedItem, Toast.LENGTH_SHORT).show(); */
                 Bundle args = new Bundle();
-                args.putParcelable("car", CartProductList.get(position)); // or use Parcelable for better performance
+                args.putParcelable("Product", CartProductList.get(position).getProd()); // or use Parcelable for better performance
                 DetailsFragment cd = new DetailsFragment();
                 cd.setArguments(args);
                 FragmentTransaction ft= ((MainActivity)context).getSupportFragmentManager().beginTransaction();
@@ -60,7 +61,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.MyViewHolder holder, int position) {
-        Product prod = CartProductList.get(position);
+        Product prod = CartProductList.get(position).getProd();
         holder.tvName.setText(prod.getName());
             holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
       //  holder.tvDescription.setText(prod.getDescription());

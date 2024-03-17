@@ -34,6 +34,8 @@ public class Product implements Parcelable {
         description = in.readString();
         category = in.readString();
         image = in.readString();
+        productId=in.readString();
+        Price= Integer.valueOf(in.readString());
 
     }
 
@@ -95,7 +97,9 @@ public class Product implements Parcelable {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", category='" + category + '\'' +
+                ", Price=" + Price +
                 ", image='" + image + '\'' +
+                ", productId='" + productId + '\'' +
                 '}';
     }
 
@@ -110,6 +114,8 @@ public class Product implements Parcelable {
         dest.writeString(description);
         dest.writeString(category);
         dest.writeString(image);
+        dest.writeString(productId);
+        dest.writeString(String.valueOf(Price));
     }
 
     public String getProductId() {

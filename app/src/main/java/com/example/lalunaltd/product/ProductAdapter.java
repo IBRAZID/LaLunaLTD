@@ -81,7 +81,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                         break;
                     }
                     else {
-                        ItemInOrder item=new ItemInOrder(i.getProductId());
+                        ItemInOrder item=new ItemInOrder(i.getProductId(),prod);
                         order.getItems().add(item);
                     }
 

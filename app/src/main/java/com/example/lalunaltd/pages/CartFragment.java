@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Utils.CartAdapter;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
@@ -31,6 +32,7 @@ public class CartFragment extends Fragment {
     FirebaseServices fbs;
     Context context;
     MainActivity mainAct;
+    Order order;
     ArrayList<Product> CartArr;
     RecyclerView rvCart;
     private CartAdapter adapter;
@@ -91,7 +93,8 @@ public class CartFragment extends Fragment {
 //            if (i.GetProductId().equals())
 //        }
         fbs = FirebaseServices.getInstance();
-        CartArr = new ArrayList<>();
+        //CartArr = new ArrayList<>();
+        order=((MainActivity)getActivity()).getOrder();
         rvCart = getView().findViewById(R.id.rvCartCartFragment);
         btnBack=getView().findViewById(R.id.btnBackCartFragment);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +103,9 @@ public class CartFragment extends Fragment {
                 gotoHomeFragment();
             }
         });
-        CartArr = ((MainActivity)getActivity()).getCartArray();
-        adapter = new CartAdapter(getActivity(), CartArr);
+        //CartArr = ((MainActivity)getActivity()).getCartArray();
+
+        adapter = new CartAdapter(getActivity(), order.getItems());
         rvCart.setAdapter(adapter);
         rvCart.setHasFixedSize(true);
         rvCart.setLayoutManager(new LinearLayoutManager(getActivity()));
