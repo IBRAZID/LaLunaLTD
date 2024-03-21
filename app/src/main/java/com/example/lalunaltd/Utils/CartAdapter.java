@@ -68,7 +68,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // create for loop go to all cart array and check if prod is there
+               // // create for loop go to all cart array and check if prod is there
 
                 mainAct.getCartArray().add(prod);
                 Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
