@@ -6,8 +6,11 @@ public class Order {
     private ArrayList<ItemInOrder> items;
     private String dateTime;
 
-    public Order(ArrayList<ItemInOrder> items, String dateTime) {
-        this.items = items;
+    public Order() {
+    }
+
+    public Order(String dateTime) {
+        this.items = new ArrayList<>();
         this.dateTime = dateTime;
     }
 
@@ -25,5 +28,13 @@ public class Order {
 
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "items=" + items +
+                ", dateTime='" + dateTime + '\'' +
+                '}';
     }
 }

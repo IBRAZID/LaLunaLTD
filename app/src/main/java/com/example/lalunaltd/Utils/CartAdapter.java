@@ -55,7 +55,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     @NonNull
     @Override
     public CartAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-        View v= LayoutInflater.from(context).inflate(R.layout.productlayout,parent,false);
+        View v= LayoutInflater.from(context).inflate(R.layout.cartlayout,parent,false);
         return  new CartAdapter.MyViewHolder(v);
     }
 
@@ -63,12 +63,21 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull CartAdapter.MyViewHolder holder, int position) {
         Product prod = CartProductList.get(position).getProd();
         holder.tvName.setText(prod.getName());
-            holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
-      //  holder.tvDescription.setText(prod.getDescription());
-        holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+        holder.tvPrice.setText(String.valueOf("Price:"+prod.getPrice())+" ₪");
+        holder.tvQuantity.setText("Quantity:"+CartProductList.get(position).getQuantity());
+        //holder.tvDescription.setText(prod.getDescription());
+        holder.btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // // create for loop go to all cart array and check if prod is there
+                if(CartProductList.get(position).getQuantity()==1)
+                    CartProductList.remove(CartProductList.get(position));
+                else  CartProductList.get(position).setQuantity(CartProductList.get(position).getQuantity()-1);
+            }
+        });
+        holder.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // create for loop go to all cart array and check if prod is there
 
                 mainAct.getCartArray().add(prod);
                 Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
@@ -117,15 +126,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tvName;
         TextView tvPrice;
+        TextView tvQuantity;
         ImageView ivProduct;
-        ImageButton btnAddToCart;
+        ImageButton btnAdd;
+        ImageButton btnRemove;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProduct=itemView.findViewById(R.id.ivProductPhotoCartLayoutXml);
             tvName=itemView.findViewById(R.id.tvNameCartLayoutXml);
             tvPrice=itemView.findViewById(R.id.tvPriceCartLayoutXml);
-            btnAddToCart=itemView.findViewById(R.id.btnAddToCartCartLayoutXml);
+            tvQuantity=itemView.findViewById(R.id.tvQuantityCartLayoutXml);
+            btnAdd=itemView.findViewById(R.id.btnAddCartLayoutXml);
+            btnRemove=itemView.findViewById(R.id.btnRemoveCartLayoutXml);
         }
     }
 

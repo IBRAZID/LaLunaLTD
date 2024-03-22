@@ -5,7 +5,10 @@ public class ItemInOrder {
         private Integer quantity;
         private Product prod;
 
-    public ItemInOrder(String productId,Product prod) {
+    public ItemInOrder() {
+    }
+
+    public ItemInOrder(String productId, Product prod) {
         this.productId = productId;
         this.prod=prod;
         this.quantity = 1;
@@ -33,5 +36,14 @@ public class ItemInOrder {
 
     public void setProd(Product prod) {
         this.prod = prod;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemInOrder{" +
+                "productId='" + productId + '\'' +
+                ", quantity=" + quantity +
+                ", prod=" + prod +
+                '}';
     }
 }

@@ -1,36 +1,33 @@
 package com.example.lalunaltd;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Utils.FirebaseServices;
+import com.example.lalunaltd.Utils.Utils;
 import com.example.lalunaltd.pages.HomeFragment;
 import com.example.lalunaltd.pages.LoginFragment;
 import com.example.lalunaltd.pages.WaterFragment;
 import com.example.lalunaltd.product.AddProductFragment;
 import com.example.lalunaltd.Classes.Product;
-import com.example.lalunaltd.product.ProductAdapter;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.example.lalunaltd.Utils.ProductAdapter;
+import com.google.type.DateTime;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseServices fbs;
+    Utils utl;
     public ArrayList<Product> allprods;
     private ProductAdapter adapter;
     ArrayList<Product> cartArray;
     private ArrayList<ItemInOrder> items;
-    Order order;
+    public Order order;
 
     public Order getOrder() {
         return order;
@@ -72,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fbs=FirebaseServices.getInstance();
         cartArray = new ArrayList<>();
-        items=new ArrayList<>();
-        order=new Order(items,"26/9/06");
+        // TODO: add date to C'tor call
+        utl=new Utils();
+            order=new Order(utl.getDateNow());
         if(fbs.getAuth().getCurrentUser()==null){
         gotoLoginFragment();
         }

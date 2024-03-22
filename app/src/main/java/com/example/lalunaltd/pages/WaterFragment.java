@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.lalunaltd.Classes.Product;
-import com.example.lalunaltd.product.ProductAdapter;
+import com.example.lalunaltd.Utils.ProductAdapter;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.google.android.gms.tasks.OnFailureListener;

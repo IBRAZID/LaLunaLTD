@@ -1,4 +1,4 @@
-package com.example.lalunaltd.product;
+package com.example.lalunaltd.Utils;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,18 +19,19 @@ import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Classes.Product;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
-import com.example.lalunaltd.Utils.FirebaseServices;
+import com.example.lalunaltd.product.DetailsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
     Context context;
     MainActivity mainAct;
-    ArrayList<Product> ProductList;
+    private Order order;
+    private ArrayList<Product> ProductList;
     private FirebaseServices fbs;
     private ProductAdapter.OnItemClickListener itemClickListener;
-
 
     public ProductAdapter(Context context, ArrayList<Product> ProductList) {
         this.context = context;
@@ -45,7 +46,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 String selectedItem = filteredList.get(position).getNameCar();
                 Toast.makeText(getActivity(), "Clicked: " + selectedItem, Toast.LENGTH_SHORT).show(); */
                 Bundle args = new Bundle();
-                args.putParcelable("car", ProductList.get(position)); // or use Parcelable for better performance
+                args.putParcelable("product", ProductList.get(position)); // or use Parcelable for better performance
                 DetailsFragment cd = new DetailsFragment();
                 cd.setArguments(args);
                 FragmentTransaction ft= ((MainActivity)context).getSupportFragmentManager().beginTransaction();
@@ -64,7 +65,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.MyViewHolder holder, int position) {
-        Order order =mainAct.getOrder();
+         order=mainAct.getOrder();
         ArrayList<Product> CartArr=mainAct.getCartArray();
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
@@ -73,38 +74,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(ItemInOrder i : order.getItems())
+                if (order.getItems().size() > 0) {
+                    for (ItemInOrder i : order.getItems()) {
+                        if (prod.getProductId().equals(i.getProductId())) {
+                            i.setQuantity(i.getQuantity() + 1);
+                            break;
+                        }
+                        else
+                        {
+                            ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+                            order.getItems().add(item);
+                        }
+                    }
+                }
+                else
                 {
-                    if (prod.getProductId().equals(i.getProductId()))
-                    {
-                        i.setQuantity(i.getQuantity()+1);
-                        break;
-                    }
-                    else {
-                        ItemInOrder item=new ItemInOrder(i.getProductId(),prod);
-                        order.getItems().add(item);
-                    }
-
+                    ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+                    order.getItems().add(item);
                 }
 
 
-
-
-                /* TODO: if exists: check if product is already in orderitem arraylist
-                    for(ItemInOrder i : order.GetItemInOrdersList())
-                    {
-                       if (prod.getId().equals(i.getProductId()))
-                       {
-                          i.setQuant....
-                       }
-                       else
-                       {
-                          .....
-                       }
-                    }
-
-                *
-                * */
 
 
 
@@ -175,6 +164,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     }
     public void setOnItemClickListener(ProductAdapter.OnItemClickListener listener) {
         this.itemClickListener = listener;
+    }
+
+    public Order getOrder() {
+        return order;
     }
 }
 

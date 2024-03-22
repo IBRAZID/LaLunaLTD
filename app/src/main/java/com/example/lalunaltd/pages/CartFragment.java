@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Utils.CartAdapter;
 import com.example.lalunaltd.MainActivity;
@@ -88,10 +89,10 @@ public class CartFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Integer Bill =0;
-//        for(ItemInOrder i : orders)
-//        {
-//            if (i.GetProductId().equals())
-//        }
+//       for (ItemInOrder i: order.getItems())
+//       {  Bill+=i.getProd().getPrice();}
+
+
         fbs = FirebaseServices.getInstance();
         //CartArr = new ArrayList<>();
         order=((MainActivity)getActivity()).getOrder();
