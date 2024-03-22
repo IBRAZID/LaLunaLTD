@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lalunaltd.Classes.ItemInOrder;
+import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.product.DetailsFragment;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> {
     Context context;
     MainActivity mainAct;
+    Order order;
     ArrayList<ItemInOrder> CartProductList;
     private FirebaseServices fbs;
     private CartAdapter.OnItemClickListener itemClickListener;
@@ -61,6 +63,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.MyViewHolder holder, int position) {
+         order=mainAct.getOrder();
         Product prod = CartProductList.get(position).getProd();
         holder.tvName.setText(prod.getName());
         holder.tvPrice.setText(String.valueOf("Price:"+prod.getPrice())+" ₪");
@@ -73,15 +76,35 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                     CartProductList.remove(CartProductList.get(position));
                 else  CartProductList.get(position).setQuantity(CartProductList.get(position).getQuantity()-1);
                 Toast.makeText(context, "Removed!", Toast.LENGTH_SHORT).show();
+                notifyDataSetChanged();
             }
         });
         holder.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //  // // create for loop go to all cart array and check if prod is there
+               // // create for loop go to all cart array and check if prod is there
 
-                mainAct.getCartArray().add(prod);
+                if (order.getItems().size() > 0) {
+                    for (ItemInOrder i : order.getItems()) {
+                        if (prod.getProductId().equals(i.getProductId())) {
+                            i.setQuantity(i.getQuantity() + 1);
+                            break;
+                        }
+                        else
+                        {
+                            ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+                            order.getItems().add(item);
+                        }
+                    }
+                }
+                else
+                {
+                    ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+                    order.getItems().add(item);
+                }
+
                 Toast.makeText(context, "Added!", Toast.LENGTH_SHORT).show();
+                notifyDataSetChanged();
             }
         });
 
