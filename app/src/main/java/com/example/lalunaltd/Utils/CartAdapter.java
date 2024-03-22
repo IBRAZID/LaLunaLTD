@@ -72,6 +72,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 if(CartProductList.get(position).getQuantity()==1)
                     CartProductList.remove(CartProductList.get(position));
                 else  CartProductList.get(position).setQuantity(CartProductList.get(position).getQuantity()-1);
+                Toast.makeText(context, "Removed!", Toast.LENGTH_SHORT).show();
             }
         });
         holder.btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +81,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 // create for loop go to all cart array and check if prod is there
 
                 mainAct.getCartArray().add(prod);
-                Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Added!", Toast.LENGTH_SHORT).show();
             }
         });
 
