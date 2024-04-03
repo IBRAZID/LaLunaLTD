@@ -88,6 +88,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                     for (ItemInOrder i : order.getItems()) {
                         if (prod.getProductId().equals(i.getProductId())) {
                             i.setQuantity(i.getQuantity() + 1);
+                            String totalMSG = "Total Bill:" +  (mainAct.getCf().getBill() + i.getProd().getPrice()) + "₪";
+                            mainAct.getCf().getTvTotal().setText(totalMSG);
                             break;
                         }
                         else
@@ -96,6 +98,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                             order.getItems().add(item);
                         }
                     }
+
+
                 }
                 else
                 {

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
@@ -20,6 +21,7 @@ import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.Classes.Product;
+import com.google.protobuf.StringValue;
 
 import java.util.ArrayList;
 
@@ -30,13 +32,33 @@ import java.util.ArrayList;
  */
 public class CartFragment extends Fragment {
     private ImageButton btnBack;
-    FirebaseServices fbs;
+    private FirebaseServices fbs;
     Context context;
     MainActivity mainAct;
-    Order order;
-    ArrayList<Product> CartArr;
-    RecyclerView rvCart;
+    private Order order;
+    private Integer Bill;
+
+    public Integer getBill() {
+        return Bill;
+    }
+
+    public void setBill(Integer bill) {
+        Bill = bill;
+    }
+
+    private ArrayList<Product> CartArr;
+    private RecyclerView rvCart;
     private CartAdapter adapter;
+
+    public TextView getTvTotal() {
+        return tvTotal;
+    }
+
+    public void setTvTotal(TextView tvTotal) {
+        this.tvTotal = tvTotal;
+    }
+
+    private TextView tvTotal;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -88,37 +110,40 @@ public class CartFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Integer Bill =0;
-//       for (ItemInOrder i: order.getItems())
-//       {  Bill+=i.getProd().getPrice();}
-
-
-        fbs = FirebaseServices.getInstance();
-        //CartArr = new ArrayList<>();
+        tvTotal=getView().findViewById(R.id.tvBillCartFragment);
         order=((MainActivity)getActivity()).getOrder();
-        rvCart = getView().findViewById(R.id.rvCartCartFragment);
-        btnBack=getView().findViewById(R.id.btnBackCartFragment);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoHomeFragment();
+        Integer Bill = 0;
+        if (order.getItems().size() > 0)
+            for (ItemInOrder i : order.getItems())
+            {
+                Bill = Bill + (i.getProd().getPrice() * i.getQuantity());
             }
-        });
-        //CartArr = ((MainActivity)getActivity()).getCartArray();
+            tvTotal.setText("Total Bill:" + String.valueOf(Bill) + "₪");
+       //     adapter.notifyDataSetChanged();
+            fbs = FirebaseServices.getInstance();
+            //CartArr = new ArrayList<>();
+            order = ((MainActivity) getActivity()).getOrder();
+            rvCart = getView().findViewById(R.id.rvCartCartFragment);
+            btnBack = getView().findViewById(R.id.btnBackCartFragment);
+            btnBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    gotoHomeFragment();
+                }
+            });
+            //CartArr = ((MainActivity)getActivity()).getCartArray();
 
-        adapter = new CartAdapter(getActivity(), order.getItems());
-        rvCart.setAdapter(adapter);
-        rvCart.setHasFixedSize(true);
-        rvCart.setLayoutManager(new LinearLayoutManager(getActivity()));
+            adapter = new CartAdapter(getActivity(), order.getItems());
+            rvCart.setAdapter(adapter);
+            rvCart.setHasFixedSize(true);
+            rvCart.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-
+        }
+        private void gotoHomeFragment () {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+            ft.commit();
+        }
 
     }
-    private void gotoHomeFragment(){
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new HomeFragment());
-        ft.commit();
-    }
-
-}

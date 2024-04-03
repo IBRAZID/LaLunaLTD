@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.product.AddProductFragment;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
@@ -134,7 +135,9 @@ public class HomeFragment extends Fragment {
     }
     private void gotoCartFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new CartFragment());
+        CartFragment cf = new CartFragment();
+        ((MainActivity)getActivity()).setCf(cf);
+        ft.replace(R.id.FrameLayoutMain, cf);
         ft.commit();
     }
     public void gotoBeveragesFragment() {

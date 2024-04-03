@@ -9,6 +9,7 @@ import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.Utils.Utils;
+import com.example.lalunaltd.pages.CartFragment;
 import com.example.lalunaltd.pages.HomeFragment;
 import com.example.lalunaltd.pages.LoginFragment;
 import com.example.lalunaltd.pages.WaterFragment;
@@ -28,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Product> cartArray;
     private ArrayList<ItemInOrder> items;
     public Order order;
+    public CartFragment cf;
+
+    public CartFragment getCf() {
+        return cf;
+    }
+
+    public void setCf(CartFragment cf) {
+        this.cf = cf;
+    }
 
     public Order getOrder() {
         return order;
