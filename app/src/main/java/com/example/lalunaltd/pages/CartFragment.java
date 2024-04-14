@@ -119,7 +119,7 @@ public class CartFragment extends Fragment {
                 Bill = Bill + (i.getProd().getPrice() * i.getQuantity());
             }
             tvTotal.setText("Total Bill:" + String.valueOf(Bill) + "₪");
-       //     adapter.notifyDataSetChanged();
+            //adapter.notifyDataSetChanged();
             fbs = FirebaseServices.getInstance();
             //CartArr = new ArrayList<>();
             order = ((MainActivity) getActivity()).getOrder();

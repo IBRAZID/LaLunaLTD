@@ -29,7 +29,18 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Product> cartArray;
     private ArrayList<ItemInOrder> items;
     public Order order;
+    public Integer TotalBillMain;
+
+    public Integer getTotalBillMain() {
+        return TotalBillMain;
+    }
+
+    public void setTotalBillMain(Integer totalBillMain) {
+        TotalBillMain = totalBillMain;
+    }
+
     public CartFragment cf;
+
 
     public CartFragment getCf() {
         return cf;
@@ -110,4 +121,6 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.FrameLayoutMain,new WaterFragment());
         ft.commit();
     }
+
+
 }

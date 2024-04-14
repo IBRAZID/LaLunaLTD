@@ -18,6 +18,7 @@ import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.product.DetailsFragment;
 import com.example.lalunaltd.Classes.Product;
+import com.google.protobuf.StringValue;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.MyViewHolder holder, int position) {
-         order=mainAct.getOrder();
+        order=mainAct.getOrder();
         Product prod = CartProductList.get(position).getProd();
         holder.tvName.setText(prod.getName());
         holder.tvPrice.setText(String.valueOf("Price:"+prod.getPrice())+" ₪");
@@ -88,8 +89,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                     for (ItemInOrder i : order.getItems()) {
                         if (prod.getProductId().equals(i.getProductId())) {
                             i.setQuantity(i.getQuantity() + 1);
-                            String totalMSG = "Total Bill:" +  (mainAct.getCf().getBill() + i.getProd().getPrice()) + "₪";
-                            mainAct.getCf().getTvTotal().setText(totalMSG);
+                            //                String totalMSG;
+                           //  totalMSG = "Total Bill:" +  (String.valueOf() + String.valueOf(i.getProd().getPrice())) + "₪";
+                          //  mainAct.getCf().getTvTotal().setText(totalMSG);
                             break;
                         }
                         else
