@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lalunaltd.MainActivity;
+import com.example.lalunaltd.SettingsFragment;
 import com.example.lalunaltd.product.AddProductFragment;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
@@ -24,8 +25,9 @@ import com.example.lalunaltd.Utils.FirebaseServices;
  */
 public class HomeFragment extends Fragment {
     private FirebaseServices fbs;
-    private Button btnWater,btnBeverages, btnSnacks,btnAdd,btnCart;
-    private TextView tvSignout;
+    private Button btnBeverages, btnSnacks,btnWater,btnCart;
+    TextView tvSettings;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,10 +72,9 @@ public class HomeFragment extends Fragment {
     public void onStart() {
         super.onStart();
         fbs=FirebaseServices.getInstance();
-        btnAdd=getView().findViewById(R.id.btnAddHomeFragment);
+        tvSettings=getView().findViewById(R.id.tvSettingsHomeFragment);
         btnWater=getView().findViewById(R.id.btnWaterHome);
         btnBeverages=getView().findViewById(R.id.btnBeveragesHome);
-        tvSignout=getView().findViewById(R.id.tvSignoutHomeFragment);
         btnCart=getView().findViewById(R.id.btnCartHomeFragment);
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,20 +83,6 @@ public class HomeFragment extends Fragment {
             }
         });
         btnSnacks =getView().findViewById(R.id.btnSnacksHome);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoAddProductFragment();
-            }
-        });
-        tvSignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fbs.getAuth().signOut();
-                Toast.makeText(getActivity(), "Successfully Signed Out", Toast.LENGTH_SHORT).show();
-                gotoLoginFragment();
-            }
-        });
         btnWater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +101,12 @@ public class HomeFragment extends Fragment {
                 gotoArabicCansFragment();
             }
         });
+        tvSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoSettingsFragment();
+            }
+        });
     }
 
 
@@ -128,11 +121,12 @@ public class HomeFragment extends Fragment {
         ft.replace(R.id.FrameLayoutMain,new WaterFragment());
         ft.commit();
     }
-    private void gotoLoginFragment(){
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new LoginFragment());
+    public void gotoSettingsFragment (){
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new SettingsFragment());
         ft.commit();
     }
+
     private void gotoCartFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         CartFragment cf = new CartFragment();
@@ -140,16 +134,13 @@ public class HomeFragment extends Fragment {
         ft.replace(R.id.FrameLayoutMain, cf);
         ft.commit();
     }
+
     public void gotoBeveragesFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
         ft.commit();
     }
-    private void gotoAddProductFragment(){
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayoutMain, new AddProductFragment());
-        ft.commit();
-    }
+
     public void gotoArabicCansFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new SnacksFragment());

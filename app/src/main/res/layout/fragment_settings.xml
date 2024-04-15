@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayoutHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pages.HomeFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp">
+
+            <TextView
+                android:id="@+id/textView6Settings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="37dp"
+                android:background="@drawable/underline_background"
+                android:backgroundTint="@color/mainBlue"
+                android:gravity="center_vertical"
+                android:outlineAmbientShadowColor="@color/mainBlue"
+                android:outlineProvider="bounds"
+                android:outlineSpotShadowColor="@color/mainBlue"
+                android:text="Settings"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvContactUsSettingsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7Settings" />
+
+            <TextView
+                android:id="@+id/textView7Settings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="2dp"
+                android:background="@color/cardview_dark_background"
+                android:backgroundTint="#03A9F4"
+                android:gravity="center"
+                android:text="  LaLuna Universe "
+                android:textColor="@color/white"
+                android:textSize="23dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView6Settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tvContactUsSettingsFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="55dp"
+
+                android:layout_marginEnd="55dp"
+                android:layout_marginBottom="45dp"
+                android:background="@drawable/underline_background"
+                android:gravity="center"
+                android:text="Contact US!"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvAddSettingsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6Settings" />
+
+            <TextView
+                android:id="@+id/tvHomeSettingsFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="55dp"
+
+                android:layout_marginEnd="55dp"
+                android:layout_marginBottom="27dp"
+                android:background="@drawable/underline_background"
+                android:gravity="center"
+                android:text="Countinue Shopping"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvSignoutSettingsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvChangePasswordSettingsFragment" />
+
+            <TextView
+                android:id="@+id/tvChangePasswordSettingsFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginBottom="43dp"
+                android:background="@drawable/underline_background"
+                android:gravity="center"
+                android:text="Change your password"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvHomeSettingsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddSettingsFragment" />
+
+            <TextView
+                android:id="@+id/tvAddSettingsFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="55dp"
+
+                android:layout_marginEnd="55dp"
+                android:layout_marginBottom="49dp"
+                android:background="@drawable/underline_background"
+                android:gravity="center"
+                android:text="Add A New Product"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvChangePasswordSettingsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvContactUsSettingsFragment" />
+
+            <TextView
+                android:id="@+id/tvSignoutSettingsFragment"
+                android:layout_width="200dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/underline_background"
+                android:gravity="center"
+                android:text="SignOut"
+                android:textColor="#F40303"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView9Settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHomeSettingsFragment" />
+
+            <TextView
+                android:id="@+id/textView9Settings"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/cardview_dark_background"
+                android:backgroundTint="#03A9F4"
+                android:gravity="center_vertical"
+                android:text="Thanks For Chosing LaLuna"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignoutSettingsFragment" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</FrameLayout>
