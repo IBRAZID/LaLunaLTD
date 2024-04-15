@@ -27,6 +27,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
     Context context;
     MainActivity mainAct;
     Order order;
+    private Integer Bill;
     ArrayList<ItemInOrder> CartProductList;
     private FirebaseServices fbs;
     private CartAdapter.OnItemClickListener itemClickListener;
@@ -67,15 +68,33 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         order=mainAct.getOrder();
         Product prod = CartProductList.get(position).getProd();
         holder.tvName.setText(prod.getName());
+        Bill=mainAct.getTotalBillMain();
         holder.tvPrice.setText(String.valueOf("Price:"+prod.getPrice())+" ₪");
         holder.tvQuantity.setText("Quantity:"+CartProductList.get(position).getQuantity());
         //holder.tvDescription.setText(prod.getDescription());
         holder.btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String totalMSG;
+                //mainAct.setTotalBillMain(mainAct.getTotalBillMain()-CartProductList.get(position).getProd().getPrice());
+                Bill=Bill-CartProductList.get(position).getProd().getPrice();
                 if(CartProductList.get(position).getQuantity()==1)
+                {
                     CartProductList.remove(CartProductList.get(position));
-                else  CartProductList.get(position).setQuantity(CartProductList.get(position).getQuantity()-1);
+//                   if (mainAct.getTotalBillMain()!=0)
+//                       mainAct.setTotalBillMain(mainAct.getTotalBillMain()- CartProductList.get(position).getProd().getPrice());
+
+                    totalMSG = "Total Bill:" +  (String.valueOf(Bill)) + "₪";
+                }
+                else { CartProductList.get(position).setQuantity(CartProductList.get(position).getQuantity()-1);
+               // mainAct.setTotalBillMain(mainAct.getTotalBillMain()-CartProductList.get(position).getProd().getPrice());
+
+                totalMSG = "Total Bill:" +  String.valueOf(Bill) + "₪";
+                }
+                if (order.getItems().size() == 0)
+                    Bill=0;
+                mainAct.getCf().getTvTotal().setText(totalMSG);
+                mainAct.setTotalBillMain(Bill);
                 Toast.makeText(context, "Removed!", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
             }
@@ -84,31 +103,37 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                // // create for loop go to all cart array and check if prod is there
-
+                String totalMSG="0₪";
                 if (order.getItems().size() > 0) {
                     for (ItemInOrder i : order.getItems()) {
+
                         if (prod.getProductId().equals(i.getProductId())) {
+                            Bill=Bill+i.getProd().getPrice();
                             i.setQuantity(i.getQuantity() + 1);
-                            //                String totalMSG;
-                           //  totalMSG = "Total Bill:" +  (String.valueOf() + String.valueOf(i.getProd().getPrice())) + "₪";
-                          //  mainAct.getCf().getTvTotal().setText(totalMSG);
+                            totalMSG = "Total Bill:" +  (String.valueOf(Bill)) + "₪";
                             break;
                         }
-                        else
-                        {
-                            ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
-                            order.getItems().add(item);
-                        }
+//                        else
+//                        {
+//                            ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+//                            order.getItems().add(item);
+//                        }
                     }
-
-
+                }
+                else if (order.getItems().size() == 0)
+                {
+                    Bill=0;
+                    totalMSG = "Total Bill:" +  (String.valueOf(Bill)) + "₪";
                 }
                 else
                 {
                     ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+                    Bill=Bill+prod.getPrice();
                     order.getItems().add(item);
                 }
 
+                mainAct.getCf().getTvTotal().setText(totalMSG);
+                mainAct.setTotalBillMain(Bill);
                 Toast.makeText(context, "Added!", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
             }

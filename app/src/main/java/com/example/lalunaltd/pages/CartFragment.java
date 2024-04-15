@@ -21,7 +21,6 @@ import com.example.lalunaltd.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.Classes.Product;
-import com.google.protobuf.StringValue;
 
 import java.util.ArrayList;
 
@@ -36,14 +35,14 @@ public class CartFragment extends Fragment {
     Context context;
     MainActivity mainAct;
     private Order order;
-    private Integer Bill;
-
-    public Integer getBill() {
-        return Bill;
+    private Integer BillFinal;
+    private Integer BillT;
+    public Integer getBillFinal() {
+        return BillFinal;
     }
 
-    public void setBill(Integer bill) {
-        Bill = bill;
+    public void setBillFinal(Integer billFinal) {
+        BillFinal = billFinal;
     }
 
     private ArrayList<Product> CartArr;
@@ -112,13 +111,21 @@ public class CartFragment extends Fragment {
         super.onStart();
         tvTotal=getView().findViewById(R.id.tvBillCartFragment);
         order=((MainActivity)getActivity()).getOrder();
-        Integer Bill = 0;
+        BillFinal =((MainActivity)getActivity()).getTotalBillMain();
+        BillT=0;
+   //     Bill = mainAct.getTotalBillMain();
+
         if (order.getItems().size() > 0)
             for (ItemInOrder i : order.getItems())
             {
-                Bill = Bill + (i.getProd().getPrice() * i.getQuantity());
+                BillT = BillT + (i.getProd().getPrice() * i.getQuantity());
             }
-            tvTotal.setText("Total Bill:" + String.valueOf(Bill) + "₪");
+
+                BillFinal=BillT;
+
+
+        ((MainActivity)getActivity()).setTotalBillMain(BillFinal);
+            tvTotal.setText("Total Bill:" + String.valueOf(BillFinal) + "₪");
             //adapter.notifyDataSetChanged();
             fbs = FirebaseServices.getInstance();
             //CartArr = new ArrayList<>();
