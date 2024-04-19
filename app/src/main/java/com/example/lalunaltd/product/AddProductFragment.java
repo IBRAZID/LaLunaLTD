@@ -139,18 +139,27 @@ public class AddProductFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // get data from screen
+                if (etProductName.getText().toString().trim().isEmpty()                         ||
+                        spnrCategory.getSelectedItem().toString().equals("Select Category...")  ||
+                        etDescription.getText().toString().trim().isEmpty()                     ||
+                        etPrice.getText().toString().trim().isEmpty())
+                {  Toast.makeText(getActivity(), "Please Check Input!", Toast.LENGTH_SHORT).show();}
+
+                else {
                 String ProductName = etProductName.getText().toString();
-                String Category=spnrCategory.getSelectedItem().toString();
-                String Description =etDescription.getText().toString();
+                String Category = spnrCategory.getSelectedItem().toString();
+                String Description = etDescription.getText().toString();
                 Integer Price = Integer.parseInt(etPrice.getText().toString());
-
-
                 // data validation
 
-
-                // add data to firestore
-                Product product = new Product(ProductName,Description,Category, fbs.getSelectedImageURL().toString(),Price);
-
+                Product product;
+                if (fbs.getSelectedImageURL() != null) {
+                    product = new Product(ProductName, Description, Category, fbs.getSelectedImageURL().toString(), Price);
+                }
+                else
+                {
+                    product = new Product(ProductName, Description, Category, "", Price);
+                }
                 fbs.getFire().collection("products").add(product).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
@@ -166,7 +175,7 @@ public class AddProductFragment extends Fragment {
 
                 });
 
-
+            }
             }
         });
     }

@@ -48,6 +48,7 @@ public class CartFragment extends Fragment {
     private ArrayList<Product> CartArr;
     private RecyclerView rvCart;
     private CartAdapter adapter;
+    private TextView Checkout;
 
     public TextView getTvTotal() {
         return tvTotal;
@@ -131,6 +132,7 @@ public class CartFragment extends Fragment {
             //CartArr = new ArrayList<>();
             order = ((MainActivity) getActivity()).getOrder();
             rvCart = getView().findViewById(R.id.rvCartCartFragment);
+            Checkout= getView().findViewById(R.id.tvCheckoutCartFragment);
             btnBack = getView().findViewById(R.id.btnBackCartFragment);
             btnBack.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -138,19 +140,26 @@ public class CartFragment extends Fragment {
                     gotoHomeFragment();
                 }
             });
-            //CartArr = ((MainActivity)getActivity()).getCartArray();
-
+           Checkout.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   gotoCheckoutFragment();
+               }
+           });
             adapter = new CartAdapter(getActivity(), order.getItems());
             rvCart.setAdapter(adapter);
             rvCart.setHasFixedSize(true);
             rvCart.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
         }
         private void gotoHomeFragment () {
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.FrameLayoutMain, new HomeFragment());
             ft.commit();
         }
+    private void gotoCheckoutFragment () {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain, new CheckoutFragment());
+        ft.commit();
+    }
 
     }

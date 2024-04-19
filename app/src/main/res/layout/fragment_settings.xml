@@ -24,7 +24,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
-                android:layout_marginBottom="37dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/underline_background"
                 android:backgroundTint="@color/mainBlue"
                 android:gravity="center_vertical"
@@ -60,10 +60,10 @@
                 android:id="@+id/tvContactUsSettingsFragment"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="55dp"
 
-                android:layout_marginEnd="55dp"
-                android:layout_marginBottom="45dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/underline_background"
                 android:gravity="center"
                 android:text="Contact US!"
@@ -75,30 +75,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView6Settings" />
 
             <TextView
-                android:id="@+id/tvHomeSettingsFragment"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="55dp"
-
-                android:layout_marginEnd="55dp"
-                android:layout_marginBottom="27dp"
-                android:background="@drawable/underline_background"
-                android:gravity="center"
-                android:text="Countinue Shopping"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/tvSignoutSettingsFragment"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvChangePasswordSettingsFragment" />
-
-            <TextView
                 android:id="@+id/tvChangePasswordSettingsFragment"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginEnd="55dp"
-                android:layout_marginBottom="43dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="42dp"
                 android:background="@drawable/underline_background"
                 android:gravity="center"
                 android:text="Change your password"
@@ -113,10 +95,10 @@
                 android:id="@+id/tvAddSettingsFragment"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginStart="55dp"
 
-                android:layout_marginEnd="55dp"
-                android:layout_marginBottom="49dp"
+                android:layout_marginStart="54dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/underline_background"
                 android:gravity="center"
                 android:text="Add A New Product"
@@ -128,10 +110,28 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvContactUsSettingsFragment" />
 
             <TextView
+                android:id="@+id/tvHomeSettingsFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:layout_marginStart="54dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/underline_background"
+                android:gravity="center"
+                android:text="Continue Shopping"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/tvSignoutSettingsFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvChangePasswordSettingsFragment" />
+
+            <TextView
                 android:id="@+id/tvSignoutSettingsFragment"
                 android:layout_width="200dp"
                 android:layout_height="0dp"
-                android:layout_marginBottom="14dp"
+                android:layout_marginBottom="37dp"
                 android:background="@drawable/underline_background"
                 android:gravity="center"
                 android:text="SignOut"

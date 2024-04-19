@@ -1,4 +1,4 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.pages;
 
 import android.os.Bundle;
 
@@ -11,10 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
-import com.example.lalunaltd.pages.ForgotFragment;
-import com.example.lalunaltd.pages.HomeFragment;
-import com.example.lalunaltd.pages.LoginFragment;
 import com.example.lalunaltd.product.AddProductFragment;
 
 /**

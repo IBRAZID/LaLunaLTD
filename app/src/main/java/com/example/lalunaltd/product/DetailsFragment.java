@@ -40,7 +40,7 @@ public class DetailsFragment extends Fragment {
     private ArrayList<Product> ProductList;
     private FirebaseServices fbs;
 
-    Product prod;
+    private Product prod;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,8 +92,6 @@ public class DetailsFragment extends Fragment {
     public void onStart() {
         super.onStart();
         init();
-
-
     }
 
     private void init() {
@@ -103,10 +101,9 @@ public class DetailsFragment extends Fragment {
         ivImage=getView().findViewById(R.id.ivProductPhotoDetailsFragment);
         tvPrice=getView().findViewById(R.id.tvPriceDetailsFragment);
         btnBack=getView().findViewById(R.id.btnBackDetailsFragment);
-
         Bundle args = getArguments();
         if (args != null) {
-            prod = args.getParcelable("car");
+            prod = args.getParcelable("product");
             if (prod != null) {
                 //String data = myObject.getData();
                 // Now you can use 'data' as needed in FragmentB.
