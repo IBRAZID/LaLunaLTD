@@ -17,13 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Classes.Product;
-import com.example.lalunaltd.MainActivity;
+import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.product.DetailsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
     Context context;

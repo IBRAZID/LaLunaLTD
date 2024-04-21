@@ -1,4 +1,4 @@
-package com.example.lalunaltd;
+package com.example.lalunaltd.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
+import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.Utils.Utils;
 import com.example.lalunaltd.pages.CartFragment;

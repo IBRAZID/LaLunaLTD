@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.Utils.CartAdapter;
-import com.example.lalunaltd.MainActivity;
+import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.example.lalunaltd.Classes.Product;

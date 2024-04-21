@@ -14,11 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
-import com.example.lalunaltd.MainActivity;
+import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.product.DetailsFragment;
 import com.example.lalunaltd.Classes.Product;
-import com.google.protobuf.StringValue;
 import com.squareup.picasso.Picasso;
 import android.os.Bundle;
 import java.util.ArrayList;
