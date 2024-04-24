@@ -26,6 +26,7 @@ public class SettingsFragment extends Fragment {
     private TextView tvSignout;
     private TextView tvHome;
     private TextView tvChangePassword;
+    private TextView tvContactUs;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,6 +81,8 @@ public class SettingsFragment extends Fragment {
         tvAdd =getView().findViewById(R.id.tvAddSettingsFragment);
         tvSignout=getView().findViewById(R.id.tvSignoutSettingsFragment);
         tvHome=getView().findViewById(R.id.tvHomeSettingsFragment);
+        tvContactUs=getView().findViewById(R.id.tvContactUsSettingsFragment);
+
         tvChangePassword=getView().findViewById(R.id.tvChangePasswordSettingsFragment);
         tvChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
