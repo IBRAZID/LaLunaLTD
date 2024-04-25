@@ -1,0 +1,7 @@
+<!-- toast_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/mainBlue"></solid>
+"/> <!-- Change color to whatever you want -->
+    <corners android:radius="8dp"/> <!-- Change radius as needed -->
+</shape>

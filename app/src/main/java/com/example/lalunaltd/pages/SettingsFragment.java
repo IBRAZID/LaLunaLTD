@@ -81,8 +81,28 @@ public class SettingsFragment extends Fragment {
         tvAdd =getView().findViewById(R.id.tvAddSettingsFragment);
         tvSignout=getView().findViewById(R.id.tvSignoutSettingsFragment);
         tvHome=getView().findViewById(R.id.tvHomeSettingsFragment);
-        tvContactUs=getView().findViewById(R.id.tvContactUsSettingsFragment);
-
+        tvContactUs = getView().findViewById(R.id.tvContactUsSettingsFragment);
+        tvContactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Dial Us At: 050-303-0846", Toast.LENGTH_SHORT).show();
+//                if (getView() != null) {
+//                    LayoutInflater inflater = getLayoutInflater();
+//                    View layout = inflater.inflate(R.layout.custom_toast,
+//                            (ViewGroup) getView().findViewById(R.id.custom_toast_layout));
+//
+//                    // Find any views within the custom toast layout
+//                    TextView text = layout.findViewById(R.id.textView);
+//                    text.setText("Your custom message here");
+//
+//                    // Create and display the toast
+//                    Toast toast = new Toast(getContext());
+//                    toast.setDuration(Toast.LENGTH_LONG);
+//                    toast.setView(layout);
+//                    toast.show();
+//                }
+            }
+        });
         tvChangePassword=getView().findViewById(R.id.tvChangePasswordSettingsFragment);
         tvChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
