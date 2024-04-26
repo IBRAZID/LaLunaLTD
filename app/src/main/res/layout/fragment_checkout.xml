@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pages.CheckoutFragment">
+    android:orientation="vertical"
+    android:background="#E0F2FE">  <TextView
+    android:id="@+id/checkout_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="16dp"
+    android:text="Checkout"
+    android:textColor="#003399"  android:textSize="24sp"
+    android:textStyle="bold" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#F0F8FF">  <TextView
+        android:id="@+id/billing_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="billing_information"
+        android:textStyle="bold" />
 
-</FrameLayout>
+        <EditText
+            android:id="@+id/name_on_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name_on_card"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/pay_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#007BFF"
+        android:text="pay"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
