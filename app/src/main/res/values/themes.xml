@@ -3,7 +3,12 @@
     <style name="Base.Theme.LaLunaLTD" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowAnimationStyle">@style/animation</item>
     </style>
 
     <style name="Theme.LaLunaLTD" parent="Base.Theme.LaLunaLTD" />
+    <style name="animation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
 </resources>

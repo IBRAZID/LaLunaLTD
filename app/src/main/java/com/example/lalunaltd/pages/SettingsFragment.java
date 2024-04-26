@@ -1,5 +1,7 @@
 package com.example.lalunaltd.pages;
 
+import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -85,7 +87,7 @@ public class SettingsFragment extends Fragment {
         tvContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Dial Us At: 050-303-0846", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Dial Us At: 050-303-0846", Toast.LENGTH_SHORT).show();
 //                if (getView() != null) {
 //                    LayoutInflater inflater = getLayoutInflater();
 //                    View layout = inflater.inflate(R.layout.custom_toast,
@@ -101,6 +103,16 @@ public class SettingsFragment extends Fragment {
 //                    toast.setView(layout);
 //                    toast.show();
 //                }
+                Dialog dialog;
+                dialog=new Dialog(getActivity());
+                dialog.setContentView(R.layout.custom_dialog);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.background));
+                }
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+               // dialog.setCancelable(false);
+                dialog.show();
+
             }
         });
         tvChangePassword=getView().findViewById(R.id.tvChangePasswordSettingsFragment);
