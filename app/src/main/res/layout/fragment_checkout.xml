@@ -4,45 +4,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#E0F2FE">  <TextView
-    android:id="@+id/checkout_title"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="16dp"
-    android:text="Checkout"
-    android:textColor="#003399"  android:textSize="24sp"
-    android:textStyle="bold" />
+    android:background="#E0F2FE">
 
+    <!-- Checkout title -->
+    <TextView
+        android:id="@+id/checkout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="Checkout"
+
+        android:textColor="@color/mainBlue"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Billing information section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#F0F8FF">  <TextView
-        android:id="@+id/billing_info_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="billing_information"
-        android:textStyle="bold" />
+        android:background="#F0F8FF">
 
+        <!-- Billing information title -->
+        <TextView
+            android:id="@+id/billing_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Billing Information"
+            android:textStyle="bold" />
+
+        <!-- Name on card input field -->
         <EditText
             android:id="@+id/name_on_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="name_on_card"
+            android:hint="Name on Card"
             android:inputType="textPersonName" />
 
+        <!-- Card number input field -->
+        <EditText
+            android:id="@+id/card_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Card Number"
+            android:inputType="number" />
+
+        <!-- Expiry date input field -->
+        <EditText
+            android:id="@+id/expiry_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Expiry Date (MM/YY)"
+            android:inputType="date" />
+
+        <!-- Postal code input field -->
+        <EditText
+            android:id="@+id/postal_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Postal Code"
+            android:inputType="number" />
     </LinearLayout>
 
+    <!-- Pay button -->
     <Button
         android:id="@+id/pay_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#007BFF"
-        android:text="pay"
+        android:backgroundTint="@color/mainBlue"
+        android:text="Pay"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>
