@@ -17,7 +17,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="383dp"
             android:layout_height="235dp"
-            android:padding="16dp">
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/ivProductPhotoCartLayoutXml"
+            app:layout_constraintStart_toEndOf="@+id/ivProductPhotoCartLayoutXml">
 
             <ImageView
                 android:id="@+id/ivProductPhotoCartLayoutXml"

@@ -53,7 +53,7 @@
 
             <ImageButton
                 android:id="@+id/btnAddToCartProductLayoutXml"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="56dp"
                 android:backgroundTint="@color/mainBlue"
