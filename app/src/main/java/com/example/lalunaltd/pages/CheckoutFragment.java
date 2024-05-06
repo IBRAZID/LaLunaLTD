@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ public class CheckoutFragment extends Fragment {
     private TextView tvPostalCode;
     private TextView tvCvv;
     private Button btnPlaceOrder;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,6 +84,22 @@ public class CheckoutFragment extends Fragment {
         tvExpDate=getView().findViewById(R.id.expiry_date);
         tvPostalCode=getView().findViewById(R.id.postal_code);
         tvCvv=getView().findViewById(R.id.cvv);
+        TextWatcher tw =new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        }
         btnPlaceOrder=getView().findViewById(R.id.pay_button);
         btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,4 +124,5 @@ public class CheckoutFragment extends Fragment {
         ft.replace(R.id.FrameLayoutMain, new CartFragment());
         ft.commit();
     }
+
 }
