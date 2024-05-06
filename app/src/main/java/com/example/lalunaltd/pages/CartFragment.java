@@ -144,8 +144,8 @@ public class CartFragment extends Fragment {
            Checkout.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   if (tvTotal.getText().toString().equals("Total Bill:0₪") == false)
-                   gotoCheckoutFragment();
+                   if (tvTotal.getText().toString().equals("Total Bill:0₪") == false){
+                   gotoCheckoutFragment();}
                    else {
                        Toast.makeText(getActivity(), "Your Cart is Empty Go Fill it Up!", Toast.LENGTH_SHORT).show();
                        gotoHomeFragment();

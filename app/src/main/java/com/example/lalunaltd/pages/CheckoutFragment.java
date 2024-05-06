@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lalunaltd.Activities.MainActivity;
+import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.R;
 
 /**
@@ -27,6 +29,7 @@ public class CheckoutFragment extends Fragment {
     private TextView tvExpDate;
     private TextView tvPostalCode;
     private TextView tvCvv;
+    private Order order;
     private Button btnPlaceOrder;
     private Button btnGotoCart;
 
@@ -85,6 +88,7 @@ public class CheckoutFragment extends Fragment {
         tvExpDate=getView().findViewById(R.id.expiry_date);
         tvPostalCode=getView().findViewById(R.id.postal_code);
         tvCvv=getView().findViewById(R.id.cvv);
+        order = ((MainActivity) getActivity()).getOrder();
         btnGotoCart=getView().findViewById(R.id.go_back_to_cart_button);
         btnGotoCart.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -116,7 +120,8 @@ public class CheckoutFragment extends Fragment {
                 Toast.makeText(getActivity(), "Please Check Your Details", Toast.LENGTH_SHORT).show();
                 }
                     else{Toast.makeText(getActivity(), "Order Placed", Toast.LENGTH_SHORT).show();
-                gotoHomeFragment();
+                    order.getItems().clear();
+                    gotoHomeFragment();
 
                 }
             }
