@@ -43,6 +43,7 @@ public class CheckoutFragment extends Fragment {
      * @param address Parameter 2.
      * @return A new instance of fragment CheckoutFragment.
      */
+
     public static CheckoutFragment newInstance(String name, String address) {
         CheckoutFragment fragment = new CheckoutFragment();
         Bundle args = new Bundle();
@@ -119,6 +120,7 @@ public class CheckoutFragment extends Fragment {
 
         return true;
     }
+
 
     private boolean isValidCardNumber(String cardNumber) {
         // Implement card number validation logic here
