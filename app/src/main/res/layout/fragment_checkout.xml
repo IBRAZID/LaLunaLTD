@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Expiry Date (MM/YY)"
-            android:inputType="date" />
+            android:inputType="datetime|date" />
 
         <!-- Postal code input field -->
         <EditText
@@ -67,6 +67,14 @@
             android:layout_height="wrap_content"
             android:hint="Postal Code"
             android:inputType="number" />
+
+        <!-- CVV input field -->
+        <EditText
+            android:id="@+id/cvv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CVV"
+            android:inputType="numberPassword" />
     </LinearLayout>
 
     <!-- Pay button -->
@@ -76,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/mainBlue"
-        android:text="Pay"
+        android:text="Place Order"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>
