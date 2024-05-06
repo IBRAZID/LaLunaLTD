@@ -28,6 +28,7 @@ public class CheckoutFragment extends Fragment {
     private TextView tvPostalCode;
     private TextView tvCvv;
     private Button btnPlaceOrder;
+    private Button btnGotoCart;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -84,23 +85,30 @@ public class CheckoutFragment extends Fragment {
         tvExpDate=getView().findViewById(R.id.expiry_date);
         tvPostalCode=getView().findViewById(R.id.postal_code);
         tvCvv=getView().findViewById(R.id.cvv);
-        TextWatcher tw =new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+        btnGotoCart=getView().findViewById(R.id.go_back_to_cart_button);
+        btnGotoCart.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+                                 gotoCartFragment();
             }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        }
-        btnPlaceOrder=getView().findViewById(R.id.pay_button);
+           });
+//        TextWatcher tw =new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        }
+                btnPlaceOrder = getView().findViewById(R.id.pay_button);
         btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

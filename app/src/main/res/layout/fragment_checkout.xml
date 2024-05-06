@@ -87,4 +87,15 @@
         android:text="Place Order"
         android:textColor="#FFFFFF" />
 
+    <!-- Go back to cart button -->
+    <Button
+        android:id="@+id/go_back_to_cart_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/mainBlue"
+        android:text="Go Back to Cart"
+        android:textColor="#FFFFFF"
+        android:onClick="goToCartFragment" />
+
 </LinearLayout>
