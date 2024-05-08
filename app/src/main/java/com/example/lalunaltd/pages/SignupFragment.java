@@ -99,8 +99,8 @@ public class SignupFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(getActivity(), "Successfully Signed Up!", Toast.LENGTH_SHORT).show();
-                            gotoLoginFragment();
-                            //TODO: decide what to do
+                            gotoHomeFragment();
+                            fbs.getAuth().signInWithEmailAndPassword(Username,Password);
                         }
                         else{
                             //TODO: decide what to do
@@ -122,6 +122,11 @@ public class SignupFragment extends Fragment {
     private void gotoLoginFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
+        ft.commit();
+    }
+    public void gotoHomeFragment() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayoutMain,new HomeFragment());
         ft.commit();
     }
 }
