@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/ivProductPhotoProductLayoutXml"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
+                android:layout_width="308dp"
+                android:layout_height="199dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -53,9 +53,11 @@
 
             <ImageButton
                 android:id="@+id/btnAddToCartProductLayoutXml"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_width="333dp"
+                android:layout_height="51dp"
+                android:layout_marginStart="-20dp"
                 android:layout_marginTop="56dp"
+                android:layout_marginEnd="85dp"
                 android:backgroundTint="@color/mainBlue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
