@@ -1,6 +1,7 @@
 package com.example.lalunaltd.pages;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -87,33 +88,21 @@ public class SettingsFragment extends Fragment {
         tvContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "Dial Us At: 050-303-0846", Toast.LENGTH_SHORT).show();
-//                if (getView() != null) {
-//                    LayoutInflater inflater = getLayoutInflater();
-//                    View layout = inflater.inflate(R.layout.custom_toast,
-//                            (ViewGroup) getView().findViewById(R.id.custom_toast_layout));
-//
-//                    // Find any views within the custom toast layout
-//                    TextView text = layout.findViewById(R.id.textView);
-//                    text.setText("Your custom message here");
-//
-//                    // Create and display the toast
-//                    Toast toast = new Toast(getContext());
-//                    toast.setDuration(Toast.LENGTH_LONG);
-//                    toast.setView(layout);
-//                    toast.show();
-//                }
-                Dialog dialog;
-                dialog=new Dialog(getActivity());
-                dialog.setContentView(R.layout.custom_dialog);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.background));
-                }
-                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-               // dialog.setCancelable(false);
-                dialog.show();
 
-            }
+//                Dialog dialog;
+//                dialog=new Dialog(getActivity());
+//                dialog.setContentView(R.layout.custom_dialog);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                    dialog.getWindow().setBackgroundDrawable(getActivity().getDrawable(R.drawable.background));
+//                }
+//                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+//               // dialog.setCancelable(false);
+//                dialog.show();
+                Intent intent=new Intent(Intent.ACTION_DIAL);
+                intent.setData(android.net.Uri.parse("tel:0503030846"));
+                startActivity(intent);
+//
+           }
         });
         tvChangePassword=getView().findViewById(R.id.tvChangePasswordSettingsFragment);
         tvChangePassword.setOnClickListener(new View.OnClickListener() {

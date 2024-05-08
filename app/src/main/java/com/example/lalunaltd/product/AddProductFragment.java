@@ -40,7 +40,7 @@ public class AddProductFragment extends Fragment {
     private Spinner spnrCategory;
     private Utils utils;
     private EditText etProductName, etCategory,etDescription,etPrice;
-
+    private long cat;
     private FirebaseServices fbs;
 
 
@@ -197,5 +197,16 @@ public class AddProductFragment extends Fragment {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
         ft.commit();
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        cat = spnrCategory.getSelectedItemId();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+            spnrCategory.setSelection((int)cat, true);
     }
 }

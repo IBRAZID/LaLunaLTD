@@ -137,24 +137,35 @@ public class DetailsFragment extends Fragment {
 
 
     }
-              public void gotoSnacksFragment() {
-                  FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-                  ft.replace(R.id.FrameLayoutMain,new SnacksFragment());
-                  ft.commit();
-              }
-              public void gotoWaterFragment() {
-                  FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-                  ft.replace(R.id.FrameLayoutMain,new WaterFragment());
-                  ft.commit();
-              }
-                  public void gotoBeveragesFragment() {
-                  FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-                  ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
-                  ft.commit();
-              }
-              private void gotoHomeFragment(){
-                  FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                  ft.replace(R.id.FrameLayoutMain, new HomeFragment());
-                  ft.commit();
-              }
+
+    public void gotoSnacksFragment() {
+      FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+      ft.replace(R.id.FrameLayoutMain,new SnacksFragment());
+      ft.commit();
     }
+    public void gotoWaterFragment() {
+      FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+      ft.replace(R.id.FrameLayoutMain,new WaterFragment());
+      ft.commit();
+    }
+      public void gotoBeveragesFragment() {
+      FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+      ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
+      ft.commit();
+    }
+    private void gotoHomeFragment(){
+      FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+      ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+      ft.commit();
+    }
+
+      @Override
+      public void onPause() {
+          super.onPause();
+      }
+
+      @Override
+      public void onResume() {
+          super.onResume();
+      }
+                                                                                                                                                                  }
