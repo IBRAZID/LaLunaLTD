@@ -11,12 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.Classes.Order;
 import com.example.lalunaltd.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,11 +27,11 @@ import com.example.lalunaltd.R;
  * create an instance of this fragment.
  */
 public class CheckoutFragment extends Fragment {
-    private TextView tvNameOnCard;
-    private TextView tvCardNumber;
-    private TextView tvExpDate;
-    private TextView tvPostalCode;
-    private TextView tvCvv;
+    private EditText tvNameOnCard;
+    private EditText tvCardNumber;
+    private EditText tvExpDate;
+    private EditText tvPostalCode;
+    private TextInputEditText tvCvv;
     private Order order;
     private Button btnPlaceOrder;
     private Button btnGotoCart;
@@ -87,7 +90,7 @@ public class CheckoutFragment extends Fragment {
         tvCardNumber=getView().findViewById(R.id.card_number);
         tvExpDate=getView().findViewById(R.id.expiry_date);
         tvPostalCode=getView().findViewById(R.id.postal_code);
-        tvCvv=getView().findViewById(R.id.cvv);
+        tvCvv=getView().findViewById(R.id.etCvvCheckoutFragment);
         order = ((MainActivity) getActivity()).getOrder();
         btnGotoCart=getView().findViewById(R.id.go_back_to_cart_button);
         btnGotoCart.setOnClickListener(new View.OnClickListener() {

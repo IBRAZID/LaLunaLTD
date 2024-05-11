@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name on Card"
-            android:inputType="textPersonName" />
+            android:inputType="text" />
 
         <!-- Card number input field -->
         <EditText
@@ -68,13 +68,28 @@
             android:hint="Postal Code"
             android:inputType="number" />
 
-        <!-- CVV input field -->
-        <EditText
-            android:id="@+id/cvv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLCvvCheckoutFragment"
             android:hint="CVV"
-            android:inputType="numberPassword" />
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:helperText="Required*"
+            android:backgroundTint="@color/mainBlue"
+            app:helperTextTextColor="#FF0000"
+            android:layout_width="match_parent"
+            app:counterEnabled="true"
+            app:counterMaxLength="3"
+
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCvvCheckoutFragment"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- CVV input field -->
     </LinearLayout>
 
     <!-- Pay button -->
