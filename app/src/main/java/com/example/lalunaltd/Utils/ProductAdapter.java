@@ -50,6 +50,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 cd.setArguments(args);
                 FragmentTransaction ft= ((MainActivity)context).getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.FrameLayoutMain,cd);
+                ft.addToBackStack(null);
                 ft.commit();
             }
         };

@@ -50,6 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 cd.setArguments(args);
                 FragmentTransaction ft= ((MainActivity)context).getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.FrameLayoutMain,cd);
+                ft.addToBackStack(null);
                 ft.commit();
             }
         };

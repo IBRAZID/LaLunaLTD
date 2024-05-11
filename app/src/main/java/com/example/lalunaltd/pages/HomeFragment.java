@@ -116,11 +116,13 @@ public class HomeFragment extends Fragment {
     public void gotoWaterFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new WaterFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     public void gotoSettingsFragment (){
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new SettingsFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 
@@ -129,18 +131,21 @@ public class HomeFragment extends Fragment {
         CartFragment cf = new CartFragment();
         ((MainActivity)getActivity()).setCf(cf);
         ft.replace(R.id.FrameLayoutMain, cf);
+        ft.addToBackStack(null);
         ft.commit();
     }
 
     public void gotoBeveragesFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 
     public void gotoArabicCansFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new SnacksFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 }

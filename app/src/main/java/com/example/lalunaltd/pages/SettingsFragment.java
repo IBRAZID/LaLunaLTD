@@ -135,21 +135,25 @@ public class SettingsFragment extends Fragment {
     private void gotoAddProductFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new AddProductFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     private void gotoLoginFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     public void gotoResetPassword() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new ForgotFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 }

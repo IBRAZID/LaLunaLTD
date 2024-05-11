@@ -92,7 +92,6 @@ public class WaterFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
         rvWater = getView().findViewById(R.id.rvWaterWaterFragment);
@@ -100,6 +99,7 @@ public class WaterFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 gotoHomeFragment();
             }
         });
@@ -139,6 +139,7 @@ public class WaterFragment extends Fragment {
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 }

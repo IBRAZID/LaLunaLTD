@@ -160,11 +160,13 @@ public class CartFragment extends Fragment {
         private void gotoHomeFragment () {
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+            ft.addToBackStack(null);
             ft.commit();
         }
     private void gotoCheckoutFragment () {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new CheckoutFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 

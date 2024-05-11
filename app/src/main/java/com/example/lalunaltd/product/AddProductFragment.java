@@ -196,6 +196,7 @@ public class AddProductFragment extends Fragment {
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     @Override

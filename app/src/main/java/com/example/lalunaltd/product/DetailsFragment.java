@@ -118,20 +118,7 @@ public class DetailsFragment extends Fragment {
                 else {
                     Picasso.get().load(prod.getImage()).into(ivImage);
                 }
-                btnBack.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (prod.getCategory().equals("Beverages"))
-                            gotoBeveragesFragment();
-                        else if (prod.getCategory().equals("Snacks"))
-                            gotoSnacksFragment();
-                        else if (prod.getCategory().equals("Water"))
-                            gotoWaterFragment();
-                        else gotoHomeFragment();
 
-
-                    }
-                });
             }
         }
 
@@ -141,21 +128,25 @@ public class DetailsFragment extends Fragment {
     public void gotoSnacksFragment() {
       FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
       ft.replace(R.id.FrameLayoutMain,new SnacksFragment());
+        ft.addToBackStack(null);
       ft.commit();
     }
     public void gotoWaterFragment() {
       FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
       ft.replace(R.id.FrameLayoutMain,new WaterFragment());
+        ft.addToBackStack(null);
       ft.commit();
     }
       public void gotoBeveragesFragment() {
       FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
       ft.replace(R.id.FrameLayoutMain,new BeveragesFragment());
+          ft.addToBackStack(null);
       ft.commit();
     }
     private void gotoHomeFragment(){
       FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
       ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+        ft.addToBackStack(null);
       ft.commit();
     }
 

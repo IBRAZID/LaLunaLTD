@@ -122,6 +122,7 @@ public class SignupFragment extends Fragment {
     private void gotoLoginFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     public void gotoHomeFragment() {

@@ -133,11 +133,13 @@ public class CheckoutFragment extends Fragment {
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     private void gotoCartFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new CartFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 
