@@ -32,7 +32,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class WaterFragment extends Fragment {
-    private ImageButton btnBack;
+   // private ImageButton btnBack;
     private FirebaseServices fbs;
     private ArrayList<Product> prods;
     private RecyclerView rvWater;
@@ -95,14 +95,14 @@ public class WaterFragment extends Fragment {
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
         rvWater = getView().findViewById(R.id.rvWaterWaterFragment);
-        btnBack=getView().findViewById(R.id.btnBackWater);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                gotoHomeFragment();
-            }
-        });
+//        btnBack=getView().findViewById(R.id.btnBackWater);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                gotoHomeFragment();
+//            }
+//        });
 
         adapter = new ProductAdapter(getActivity(), prods);
         rvWater.setAdapter(adapter);

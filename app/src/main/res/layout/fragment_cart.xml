@@ -1,70 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pages.CartFragment"
-    >
+    tools:context=".pages.CartFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageButton
+            android:id="@+id/btnBackCartFragment"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="Back button"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvBillCartFragment"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
             android:background="@color/mainBlue"
             android:gravity="center"
             android:text="Total:"
             android:textColor="@color/white"
-            android:textSize="22dp"
-            app:layout_constraintBottom_toTopOf="@+id/rvCartCartFragment"
+            android:textSize="23sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnBackCartFragment" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCartCartFragment"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/tvCheckoutCartFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBillCartFragment" />
 
-        <ImageButton
-            android:id="@+id/btnBackCartFragment"
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="4dp"
-            android:backgroundTint="#FFFFFF"
-            android:src="@drawable/baseline_arrow_back_24"
-            app:layout_constraintBottom_toTopOf="@+id/tvBillCartFragment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/tvCheckoutCartFragment"
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
             android:background="@color/mainBlue"
             android:gravity="center"
             android:text="Proceed To Checkout..."
             android:textColor="@color/white"
-            android:textSize="22dp"
-
+            android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvCartCartFragment" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

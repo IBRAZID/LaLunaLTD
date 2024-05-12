@@ -89,10 +89,10 @@
                 app:layout_constraintBottom_toTopOf="@+id/btnWaterHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8333" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textView8333"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/cardview_dark_background"

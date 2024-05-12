@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     android:background="#E0F2FE">
 
-    <!-- Checkout title -->
     <TextView
         android:id="@+id/checkout_title"
         android:layout_width="wrap_content"
@@ -14,12 +14,10 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="Checkout"
-
         android:textColor="@color/mainBlue"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <!-- Billing information section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,71 +26,99 @@
         android:padding="16dp"
         android:background="#F0F8FF">
 
-        <!-- Billing information title -->
         <TextView
             android:id="@+id/billing_info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Billing Information"
-            android:textStyle="bold" />
-
-        <!-- Name on card input field -->
-        <EditText
-            android:id="@+id/name_on_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name on Card"
-            android:inputType="text" />
-
-        <!-- Card number input field -->
-        <EditText
-            android:id="@+id/card_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Card Number"
-            android:inputType="number" />
-
-        <!-- Expiry date input field -->
-        <EditText
-            android:id="@+id/expiry_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Expiry Date (MM/YY)"
-            android:inputType="datetime|date" />
-
-        <!-- Postal code input field -->
-        <EditText
-            android:id="@+id/postal_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Postal Code"
-            android:inputType="number" />
+             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etLCvvCheckoutFragment"
-            android:hint="CVV"
-            app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/ic_lock"
-            app:helperText="Required*"
-            android:backgroundTint="@color/mainBlue"
-            app:helperTextTextColor="#FF0000"
             android:layout_width="match_parent"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etCvvCheckoutFragment"
+                android:id="@+id/name_on_card"
                 android:layout_width="match_parent"
-                android:layout_height="59dp"
+                android:layout_height="wrap_content"
+                android:hint="Name on Card"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ " />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/card_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Card Number"
+                android:inputType="number"
+                android:maxLength="19" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/expiry_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="MM/YY"
+                    android:inputType="number"
+                    android:maxLength="4"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="CVV"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    app:endIconMode="password_toggle"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/postal_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Postal Code"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- CVV input field -->
     </LinearLayout>
 
-    <!-- Pay button -->
+
     <Button
         android:id="@+id/pay_button"
         android:layout_width="match_parent"
@@ -101,16 +127,5 @@
         android:backgroundTint="@color/mainBlue"
         android:text="Place Order"
         android:textColor="#FFFFFF" />
-
-    <!-- Go back to cart button -->
-    <Button
-        android:id="@+id/go_back_to_cart_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/mainBlue"
-        android:text="Go Back to Cart"
-        android:textColor="#FFFFFF"
-        android:onClick="goToCartFragment" />
-
 </LinearLayout>
+

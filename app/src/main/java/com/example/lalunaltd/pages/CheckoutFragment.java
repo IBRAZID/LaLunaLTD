@@ -34,7 +34,7 @@ public class CheckoutFragment extends Fragment {
     private TextInputEditText tvCvv;
     private Order order;
     private Button btnPlaceOrder;
-    private Button btnGotoCart;
+   // private Button btnGotoCart;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -90,15 +90,15 @@ public class CheckoutFragment extends Fragment {
         tvCardNumber=getView().findViewById(R.id.card_number);
         tvExpDate=getView().findViewById(R.id.expiry_date);
         tvPostalCode=getView().findViewById(R.id.postal_code);
-        tvCvv=getView().findViewById(R.id.etCvvCheckoutFragment);
+        tvCvv=getView().findViewById(R.id.cvv);
         order = ((MainActivity) getActivity()).getOrder();
-        btnGotoCart=getView().findViewById(R.id.go_back_to_cart_button);
-        btnGotoCart.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-                                 gotoCartFragment();
-            }
-           });
+//        btnGotoCart=getView().findViewById(R.id.go_back_to_cart_button);
+//        btnGotoCart.setOnClickListener(new View.OnClickListener() {
+//          @Override
+//          public void onClick(View v) {
+//                                 gotoCartFragment();
+//            }
+//           });
 //        TextWatcher tw =new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence s, int start, int count, int after) {

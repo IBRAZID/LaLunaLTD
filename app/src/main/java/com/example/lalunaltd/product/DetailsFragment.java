@@ -100,7 +100,7 @@ public class DetailsFragment extends Fragment {
         tvDescription=getView().findViewById(R.id.tvDescriptionDetailsFragment);
         ivImage=getView().findViewById(R.id.ivProductPhotoDetailsFragment);
         tvPrice=getView().findViewById(R.id.tvPriceDetailsFragment);
-        btnBack=getView().findViewById(R.id.btnBackDetailsFragment);
+     //   btnBack=getView().findViewById(R.id.btnBackDetailsFragment);
         Bundle args = getArguments();
         if (args != null) {
             prod = args.getParcelable("product");

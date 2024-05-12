@@ -32,7 +32,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class SnacksFragment extends Fragment {
-    private ImageButton btnBack;
+//private ImageButton btnBack;
     private FirebaseServices fbs;
     private ArrayList<Product> prods;
     private RecyclerView rvSnacks;
@@ -87,13 +87,13 @@ public class SnacksFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        btnBack=getView().findViewById(R.id.btnBackCartFragment);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoHomeFragment();
-            }
-        });
+//        btnBack=getView().findViewById(R.id.btnBackCartFragment);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                gotoHomeFragment();
+//            }
+//        });
         fbs = FirebaseServices.getInstance();
         prods = new ArrayList<>();
         rvSnacks = getView().findViewById(R.id.rvSnacksSnacksFragment);
