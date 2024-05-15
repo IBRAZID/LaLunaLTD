@@ -10,14 +10,33 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/textView9Settings"
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:background="@color/cardview_dark_background"
+            android:backgroundTint="#03A9F4"
+            android:gravity="center_vertical"
+            android:text="Thanks For Chosing LaLuna"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailForgot" />
+
         <EditText
             android:id="@+id/etEmailForgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
+            android:layout_marginBottom="453dp"
             android:ems="10"
             android:hint="Email..."
             android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/textView9Settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,15 +52,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etEmailForgot" />
 
-        <ImageButton
-            android:id="@+id/btnBackSignup"
-            android:layout_width="84dp"
-            android:layout_height="52dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="28dp"
-            android:backgroundTint="#FFFFFF"
-            android:src="@drawable/baseline_arrow_back_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

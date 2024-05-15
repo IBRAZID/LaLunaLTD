@@ -28,7 +28,7 @@ public class ForgotFragment extends Fragment {
     FirebaseServices fbs;
     EditText etEmail;
     Button btnSend;
-    ImageButton btnBack;
+  //  ImageButton btnBack;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,15 +86,15 @@ public class ForgotFragment extends Fragment {
     private void connectComponents(){
         fbs = FirebaseServices.getInstance();
         etEmail = getView().findViewById(R.id.etEmailForgot);
-        btnBack = getView().findViewById(R.id.btnBackSignup);
+  //      btnBack = getView().findViewById(R.id.btnBackSignup);
         btnSend = getView().findViewById(R.id.btnSendForgot);
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoLoginFragment();
-            }
-        });
+     //   btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                gotoLoginFragment();
+//            }
+//        });
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

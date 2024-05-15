@@ -84,7 +84,7 @@ public class SignupFragment extends Fragment {
         fbs=FirebaseServices.getInstance();
         etUsername=getView().findViewById(R.id.etUsernameSignup);
         etPassword=getView().findViewById(R.id.etPasswordSignup);
-        btnBack=getView().findViewById(R.id.btnBackSignup);
+//        btnBack=getView().findViewById(R.id.btnBackSignup);
         btnSignup=getView().findViewById(R.id.btnSignupSignup);
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,12 +112,12 @@ public class SignupFragment extends Fragment {
                 });
             }
         });
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoLoginFragment();
-            }
-        });
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                gotoLoginFragment();
+//            }
+//        });
     }
     private void gotoLoginFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();

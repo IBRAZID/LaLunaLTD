@@ -131,6 +131,7 @@ public class LoginFragment extends Fragment {
     private void gotoSignupFragment() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new SignupFragment());
+        ft.addToBackStack(null);
         ft.commit();
 
     }
@@ -139,6 +140,7 @@ public class LoginFragment extends Fragment {
     public void gotoResetPassword() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new ForgotFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
     public void gotoHomeFragment() {

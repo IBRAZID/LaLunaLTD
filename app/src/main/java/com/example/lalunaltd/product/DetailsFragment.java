@@ -107,10 +107,10 @@ public class DetailsFragment extends Fragment {
             if (prod != null) {
                 //String data = myObject.getData();
                 // Now you can use 'data' as needed in FragmentB.
-                tvDescription.setText(prod.getDescription());
+                tvDescription.setText("Description:                                                            " +prod.getDescription());
                 tvName.setText(prod.getName());
-                tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
-                tvCategory.setText(prod.getCategory().toString());
+                tvPrice.setText("Price: " + String.valueOf(prod.getPrice())+" ₪");
+                tvCategory.setText("Category: " +prod.getCategory().toString());
                 if (prod.getImage() == null || prod.getImage() .isEmpty())
                 {
                     Picasso.get().load(R.drawable.ic_launcher_background).into(ivImage);
