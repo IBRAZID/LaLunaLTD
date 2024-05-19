@@ -70,7 +70,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         Product prod = ProductList.get(position);
         holder.tvName.setText(prod.getName());
         holder.tvPrice.setText(String.valueOf(prod.getPrice())+" ₪");
-        holder.tvDescription.setText(prod.getDescription());
+       // holder.tvDescription.setText(prod.getDescription());
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,11 +116,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             }
         });
 
-        holder.tvDescription.setOnClickListener(v -> {
-            if (itemClickListener != null) {
-                itemClickListener.onItemClick(position);
-            }
-        });
+//        holder.tvDescription.setOnClickListener(v -> {
+//            if (itemClickListener != null) {
+//                itemClickListener.onItemClick(position);
+//            }
+//        });
 
         holder.ivProduct.setOnClickListener(v -> {
             if (itemClickListener != null) {
@@ -154,7 +154,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             ivProduct=itemView.findViewById(R.id.ivProductPhotoProductLayoutXml);
             tvName=itemView.findViewById(R.id.tvNameProductLayoutXml);
             tvPrice=itemView.findViewById(R.id.tvPriceProductLayoutXml);
-            tvDescription=itemView.findViewById(R.id.tvDescriptionProductLayoutXml);
+            //tvDescription=itemView.findViewById(R.id.tvDescriptionProductLayoutXml);
             btnAddToCart=itemView.findViewById(R.id.btnAddToCartProductLayoutXml);
         }
     }

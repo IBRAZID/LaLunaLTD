@@ -107,7 +107,7 @@ public class DetailsFragment extends Fragment {
             if (prod != null) {
                 //String data = myObject.getData();
                 // Now you can use 'data' as needed in FragmentB.
-                tvDescription.setText("Description:                                                            " +prod.getDescription());
+                tvDescription.setText("Description:                                                                        " +prod.getDescription());
                 tvName.setText(prod.getName());
                 tvPrice.setText("Price: " + String.valueOf(prod.getPrice())+" ₪");
                 tvCategory.setText("Category: " +prod.getCategory().toString());

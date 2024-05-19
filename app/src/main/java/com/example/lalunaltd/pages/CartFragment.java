@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class CartFragment extends Fragment {
-    private ImageButton btnBack;
+    //private ImageButton btnBack;
     private FirebaseServices fbs;
     Context context;
     MainActivity mainAct;
@@ -134,13 +134,13 @@ public class CartFragment extends Fragment {
             order = ((MainActivity) getActivity()).getOrder();
             rvCart = getView().findViewById(R.id.rvCartCartFragment);
             Checkout= getView().findViewById(R.id.tvCheckoutCartFragment);
-            btnBack = getView().findViewById(R.id.btnBackCartFragment);
-            btnBack.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoHomeFragment();
-                }
-            });
+//            btnBack = getView().findViewById(R.id.btnBackCartFragment);
+//            btnBack.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    gotoHomeFragment();
+//                }
+//            });
            Checkout.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {

@@ -141,7 +141,7 @@ public class SettingsFragment extends Fragment {
     private void gotoLoginFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
-        ft.addToBackStack(null);
+//        ft.addToBackStack(null);
         ft.commit();
     }
     private void gotoHomeFragment(){
