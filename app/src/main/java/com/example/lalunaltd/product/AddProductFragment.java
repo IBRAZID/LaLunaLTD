@@ -43,7 +43,6 @@ public class AddProductFragment extends Fragment {
     private long cat;
     private FirebaseServices fbs;
 
-
     private Button btnAdd;
 
     private ImageView ivShow;

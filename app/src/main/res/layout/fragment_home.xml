@@ -4,141 +4,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayoutHome"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".pages.HomeFragment">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/textView8333"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#03A9F4"
+            android:gravity="center_vertical"
+            android:text="  LaLuna Universe "
+            android:textColor="@color/white"
+            android:textSize="23dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSettingsHomeFragment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/baseline_settings_24"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnCartHomeFragment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btnCartHomeFragment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="319dp"
+            android:background="@drawable/baseline_shopping_cart_24"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvSettingsHomeFragment"
+            app:layout_constraintEnd_toStartOf="@+id/tvSettingsHomeFragment"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="-30dp">
+            android:layout_height="75dp"
+            android:layout_marginBottom="564dp"
+            android:background="@drawable/underline_background"
+            android:backgroundTint="@color/mainBlue"
+            android:gravity="center"
+            android:text="Home"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSettingsHomeFragment" />
 
-            <TextView
-                android:id="@+id/tvSettingsHomeFragment"
-                android:layout_width="155dp"
-                android:layout_height="45dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/underline_background"
-                android:gravity="center"
-                android:text="Settings"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView9Settings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSnacksHome" />
+        <Button
+            android:id="@+id/btnWaterHome"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="71dp"
+            android:backgroundTint="#03A9F4"
+            android:text="Water"
+            app:layout_constraintBottom_toTopOf="@+id/btnBeveragesHome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            <Button
-                android:id="@+id/btnSnacksHome"
-                android:layout_width="200dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="76dp"
-                android:backgroundTint="#03A9F4"
-                android:text="Snacks"
-                app:layout_constraintBottom_toTopOf="@+id/tvSettingsHomeFragment"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnBeveragesHome" />
+        <Button
+            android:id="@+id/btnBeveragesHome"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="74dp"
+            android:backgroundTint="#03A9F4"
+            android:text="Beverages"
+            app:layout_constraintBottom_toTopOf="@+id/btnSnacksHome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnWaterHome" />
 
-            <Button
-                android:id="@+id/btnWaterHome"
-                android:layout_width="200dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="49dp"
-                android:backgroundTint="#03A9F4"
-                android:text="Water"
-                app:layout_constraintBottom_toTopOf="@+id/btnBeveragesHome"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <Button
+            android:id="@+id/btnSnacksHome"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="89dp"
+            android:backgroundTint="#03A9F4"
+            android:text="Snacks"
+            app:layout_constraintBottom_toTopOf="@+id/textView9Settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnBeveragesHome" />
 
-            <Button
-                android:id="@+id/btnBeveragesHome"
-                android:layout_width="202dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="48dp"
-                android:backgroundTint="#03A9F4"
-                android:text="Beverages"
-                app:layout_constraintBottom_toTopOf="@+id/btnSnacksHome"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnWaterHome" />
+        <TextView
+            android:id="@+id/textView9Settings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#03A9F4"
+            android:gravity="center"
+            android:text="Thanks For Choosing LaLuna"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSnacksHome" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/underline_background"
-                android:backgroundTint="@color/mainBlue"
-                android:gravity="center_vertical"
-                android:outlineAmbientShadowColor="@color/mainBlue"
-                android:outlineProvider="bounds"
-                android:outlineSpotShadowColor="@color/mainBlue"
-                android:text="Home"
-                android:textAlignment="center"
-                android:textSize="30dp"
-                app:layout_constraintBottom_toTopOf="@+id/btnWaterHome"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8333" />
-
-            <TextView
-                android:id="@+id/textView8333"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/cardview_dark_background"
-                android:backgroundTint="#03A9F4"
-                android:gravity="center_vertical"
-                android:text="  LaLuna Universe "
-                android:textColor="@color/white"
-                android:textSize="23dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView9Settings"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@color/cardview_dark_background"
-                android:backgroundTint="#03A9F4"
-                android:gravity="center_vertical"
-                android:text="Thanks For Chosing LaLuna"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSettingsHomeFragment" />
-
-            <Button
-                android:id="@+id/btnCartHomeFragment"
-                android:layout_width="107dp"
-                android:layout_height="52dp"
-                android:background="@drawable/underline_background"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:backgroundTint="#03A9F4"
-                android:text="Cart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>

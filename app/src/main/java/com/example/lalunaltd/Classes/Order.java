@@ -37,4 +37,15 @@ public class Order {
                 ", dateTime='" + dateTime + '\'' +
                 '}';
     }
+
+    public String toEmail() {
+        StringBuilder body = new StringBuilder(); // Initialize StringBuilder
+
+        for (ItemInOrder i : this.items) {
+            body.append(i.getProd().getName().toString()); // Append to StringBuilder
+        }
+
+        return body.toString(); // Convert StringBuilder to String
+    }
+
 }

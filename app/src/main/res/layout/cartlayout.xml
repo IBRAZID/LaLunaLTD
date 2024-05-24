@@ -45,6 +45,7 @@
                 android:id="@+id/tvPriceCartLayoutXml"
                 android:layout_width="145dp"
                 android:layout_height="91dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:text="Price:"

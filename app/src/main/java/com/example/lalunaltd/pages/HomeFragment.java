@@ -22,8 +22,8 @@ import com.example.lalunaltd.Utils.FirebaseServices;
  */
 public class HomeFragment extends Fragment {
     private FirebaseServices fbs;
-    private Button btnBeverages, btnSnacks,btnWater,btnCart;
-    TextView tvSettings;
+    private Button btnBeverages, btnSnacks,btnWater;
+    TextView tvSettings,btnCart;
 
 
     // TODO: Rename parameter arguments, choose names that match

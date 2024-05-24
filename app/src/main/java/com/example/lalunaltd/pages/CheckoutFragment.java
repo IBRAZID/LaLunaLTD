@@ -1,5 +1,9 @@
 package com.example.lalunaltd.pages;
 
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -133,32 +137,59 @@ public class CheckoutFragment extends Fragment {
                     else{
                         Toast.makeText(getActivity(), "Order Placed", Toast.LENGTH_SHORT).show();
 //                       if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)
-                    sendSMSMessage();
+                   // sendSMSMessage();
+                    sendEmail("ibrazidan26@gmail.com","Order:  ",tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString());
                         order.getItems().clear();
                     gotoHomeFragment();
                 }
             }
         });
     }
+    public void sendEmail(String to, String subject, String body) {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:")); // Only email apps should handle this
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+
+        try {
+            // Chooser for user preference (Gmail, Outlook, etc.)
+            startActivity(Intent.createChooser(emailIntent, "Choose an Email Client:"));
+        } catch (ActivityNotFoundException e) {
+            // Handle case where NO email app is available
+            showNoEmailAppDialog();
+        }
+    }
+
+    // Helper method to display a user-friendly dialog
+    private void showNoEmailAppDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("No Email App Found")
+                .setMessage("Please install an email application to send emails.")
+                .setPositiveButton("OK", null)
+                .show();
+    }
+
+
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
         ft.addToBackStack(null);
         ft.commit();
     }
-    private void sendSMSMessage() {
-        String phoneNumber = "0503030846"; // Replace with the actual phone number
-        String message = "tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString()";
-
-        try {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
-            Toast.makeText(requireContext(), "SMS sent successfully", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(requireContext(), "SMS failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-    }
+//    private void sendSMSMessage() {
+//        String phoneNumber = "+972503030846"; // Replace with the actual phone number
+//        String message = "tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString()";
+//
+//        try {
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+//            Toast.makeText(requireContext(), "SMS sent successfully", Toast.LENGTH_SHORT).show();
+//        } catch (Exception e) {
+//            Toast.makeText(requireContext(), "SMS failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+//            e.printStackTrace();
+//        }
+//    }
     private void gotoCartFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new CartFragment());

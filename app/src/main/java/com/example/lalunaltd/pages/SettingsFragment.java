@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -138,12 +139,22 @@ public class SettingsFragment extends Fragment {
         ft.addToBackStack(null);
         ft.commit();
     }
-    private void gotoLoginFragment(){
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+    private void gotoLoginFragment() {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        // 1. Pop all existing fragments from the back stack
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+        // 2. Start a new FragmentTransaction
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+        // 3. Replace the content of the FrameLayoutMain with LoginFragment
         ft.replace(R.id.FrameLayoutMain, new LoginFragment());
-//        ft.addToBackStack(null);
+
+        // 4. Commit the transaction
         ft.commit();
     }
+
     private void gotoHomeFragment(){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain, new HomeFragment());
