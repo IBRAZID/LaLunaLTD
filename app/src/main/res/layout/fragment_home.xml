@@ -25,12 +25,25 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/btnCartHomeFragment"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="306dp"
+            android:layout_marginEnd="9dp"
+            android:background="@drawable/baseline_shopping_cart_24"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvSettingsHomeFragment"
+            app:layout_constraintEnd_toStartOf="@+id/tvSettingsHomeFragment"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
             android:id="@+id/tvSettingsHomeFragment"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
             android:background="@drawable/baseline_settings_24"
             android:gravity="center"
             android:textColor="@color/black"
@@ -40,21 +53,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/btnCartHomeFragment"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="319dp"
-            android:background="@drawable/baseline_shopping_cart_24"
-            android:gravity="center"
-            android:textColor="@color/black"
-            app:layout_constraintBaseline_toBaselineOf="@+id/tvSettingsHomeFragment"
-            app:layout_constraintEnd_toStartOf="@+id/tvSettingsHomeFragment"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
             android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="564dp"
             android:background="@drawable/underline_background"
             android:backgroundTint="@color/mainBlue"
@@ -70,7 +71,7 @@
             android:id="@+id/btnWaterHome"
             android:layout_width="200dp"
             android:layout_height="0dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="33dp"
             android:layout_marginBottom="71dp"
             android:backgroundTint="#03A9F4"
             android:text="Water"
