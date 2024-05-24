@@ -138,37 +138,37 @@ public class CheckoutFragment extends Fragment {
                         Toast.makeText(getActivity(), "Order Placed", Toast.LENGTH_SHORT).show();
 //                       if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)
                    // sendSMSMessage();
-                    sendEmail("ibrazidan26@gmail.com","Order:  ",tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString());
+                  //  sendEmail("ibrazidan26@gmail.com","Order:  ",tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString());
                         order.getItems().clear();
                     gotoHomeFragment();
                 }
             }
         });
     }
-    public void sendEmail(String to, String subject, String body) {
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-        emailIntent.setData(Uri.parse("mailto:")); // Only email apps should handle this
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
-
-        try {
-            // Chooser for user preference (Gmail, Outlook, etc.)
-            startActivity(Intent.createChooser(emailIntent, "Choose an Email Client:"));
-        } catch (ActivityNotFoundException e) {
-            // Handle case where NO email app is available
-            showNoEmailAppDialog();
-        }
-    }
+//    public void sendEmail(String to, String subject, String body) {
+//        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+//        emailIntent.setData(Uri.parse("mailto:")); // Only email apps should handle this
+//        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { to });
+//        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+//
+//        try {
+//            // Chooser for user preference (Gmail, Outlook, etc.)
+//            startActivity(Intent.createChooser(emailIntent, "Choose an Email Client:"));
+//        } catch (ActivityNotFoundException e) {
+//            // Handle case where NO email app is available
+//        //    showNoEmailAppDialog();
+//        }
+//    }
 
     // Helper method to display a user-friendly dialog
-    private void showNoEmailAppDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("No Email App Found")
-                .setMessage("Please install an email application to send emails.")
-                .setPositiveButton("OK", null)
-                .show();
-    }
+//    private void showNoEmailAppDialog() {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setTitle("No Email App Found")
+//                .setMessage("Please install an email application to send emails.")
+//                .setPositiveButton("OK", null)
+//                .show();
+//    }
 
 
     private void gotoHomeFragment(){
