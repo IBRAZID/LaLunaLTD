@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -99,6 +100,7 @@ public class SignupFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(getActivity(), "Successfully Signed Up!", Toast.LENGTH_SHORT).show();
+                            ((MainActivity)getActivity()).setUsernameMain(String.valueOf(fbs.getAuth().getCurrentUser().getEmail()));
                             gotoHomeFragment();
                             fbs.getAuth().signInWithEmailAndPassword(Username,Password);
                         }

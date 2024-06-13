@@ -152,11 +152,10 @@ public class CheckoutFragment extends Fragment {
                 {
                 Toast.makeText(getActivity(), "Please Check Your Details", Toast.LENGTH_SHORT).show();
                 }
+                //ibrazidan26@gmail.com
                     else{
-                        SendEmail();
-//                       if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)
-                   // sendSMSMessage();
-                  //  sendEmail("ibrazidan26@gmail.com","Order:  ",tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString());
+                        SendEmail("nadizib9@gmail.com");
+                        SendEmail(((MainActivity) getActivity()).getUsernameMain());
 
                     gotoHomeFragment();
                 }
@@ -164,7 +163,7 @@ public class CheckoutFragment extends Fragment {
         });
     }
 
-    public void SendEmail() {
+    public void SendEmail(String stringReceiverEmail) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -172,14 +171,15 @@ public class CheckoutFragment extends Fragment {
                     String orderItems="";
                     Integer Total=0;
                     if (order!=null)
-                    for (ItemInOrder i : order.getItems()) {
-                         {
-                            orderItems += "\n\n Product: " + i.getProd().getName() + " /--/ Quantity: " + i.getQuantity();
-                            Total+=i.getQuantity()*i.getProd().getPrice();
+                        for (ItemInOrder i : order.getItems()) {
+                            {
+                                orderItems += "\n\n Product: " + i.getProd().getName() + " /--/ Quantity: " + i.getQuantity();
+                                Total+=i.getQuantity()*i.getProd().getPrice();
+                            }
                         }
-                    }
+
                     String stringSenderEmail = "LLUASAPP@gmail.com";
-                    String stringReceiverEmail = "ibrazidan26@gmail.com";
+
 
                     // *** Ensure you use the App Password, NOT your regular Gmail password ***
                     String stringPassword = "xjxz wyqe smjt ljth";
@@ -217,7 +217,7 @@ public class CheckoutFragment extends Fragment {
                     // Success toast on the UI thread
                     getActivity().runOnUiThread(() -> Toast.makeText(getActivity(),
                             "Order Placed Successfully!", Toast.LENGTH_SHORT).show());
-                    order.getItems().clear();
+                    if(stringReceiverEmail.equals(((MainActivity) getActivity()).getUsernameMain())) order.getItems().clear();
                 } catch (Exception e) {
                     Log.e("SendMail", "Error sending email:", e); // Log the complete exception
 

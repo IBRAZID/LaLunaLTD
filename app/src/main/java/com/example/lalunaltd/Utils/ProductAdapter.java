@@ -23,6 +23,7 @@ import com.example.lalunaltd.product.DetailsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
     Context context;
@@ -74,35 +75,29 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (order.getItems().size() > 0) {
-                    for (ItemInOrder i : order.getItems()) {
-                        if (prod.getProductId().equals(i.getProductId())) {
-                            i.setQuantity(i.getQuantity() + 1);
-                            break;
-                        }
-                        else
-                        {
-                            ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
-                            order.getItems().add(item);
-                        }
+                boolean itemFound = false;
+
+                // Use an Iterator for safe modification
+                Iterator<ItemInOrder> iterator = order.getItems().iterator();
+                while (iterator.hasNext()) {
+                    ItemInOrder i = iterator.next();
+                    if (prod.getProductId().equals(i.getProductId())) {
+                        i.setQuantity(i.getQuantity() + 1);
+                        itemFound = true;
+                        break; // No need to continue
                     }
                 }
-                else
-                {
-                    ItemInOrder item=new ItemInOrder(prod.getProductId(), prod);
+
+                // If not found, add a new item (outside the iterator)
+                if (!itemFound) {
+                    ItemInOrder item = new ItemInOrder(prod.getProductId(), prod);
                     order.getItems().add(item);
                 }
-
-
-
-
-
-
-
 
                 Toast.makeText(context, "Successfully Added Item To Cart!", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         holder.tvName.setOnClickListener(v -> {
             if (itemClickListener != null) {

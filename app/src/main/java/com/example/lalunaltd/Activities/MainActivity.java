@@ -30,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Product> cartArray;
     private ArrayList<ItemInOrder> items;
     public Order order;
+    public String UsernameMain;
+
+    public String getUsernameMain() {
+        return UsernameMain;
+    }
+
+    public void setUsernameMain(String usernameMain) {
+        UsernameMain = usernameMain;
+    }
+
     public Integer TotalBillMain;
 
     public Integer getTotalBillMain() {
@@ -46,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public CartFragment getCf() {
         return cf;
     }
+
 
     public void setCf(CartFragment cf) {
         this.cf = cf;
@@ -89,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //
 //        });
+
         setContentView(R.layout.activity_main);
         fbs=FirebaseServices.getInstance();
         cartArray = new ArrayList<>();
@@ -99,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         gotoLoginFragment();
         }
         else {
+            UsernameMain= String.valueOf(fbs.getAuth().getCurrentUser().getEmail());
             gotoHomeFragment();
         }
     }

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lalunaltd.Activities.MainActivity;
 import com.example.lalunaltd.R;
 import com.example.lalunaltd.Utils.FirebaseServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +32,8 @@ public class LoginFragment extends Fragment {
     private TextView tvSignupLink;
     private FirebaseServices fbs;
     private  TextView tvReset;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -107,6 +110,7 @@ public class LoginFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(getActivity(), "Successfully Logged In!", Toast.LENGTH_SHORT).show();
+                            ((MainActivity)getActivity()).setUsernameMain(String.valueOf(fbs.getAuth().getCurrentUser().getEmail()));
                             gotoHomeFragment();
                             //TODO: decide what to do
                         }
@@ -147,5 +151,8 @@ public class LoginFragment extends Fragment {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.FrameLayoutMain,new HomeFragment());
         ft.commit();
+    }
+    public EditText getEtUsername() {
+        return etUsername;
     }
 }
