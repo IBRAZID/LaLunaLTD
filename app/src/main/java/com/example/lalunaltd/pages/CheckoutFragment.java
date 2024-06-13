@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.telephony.SmsManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +23,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lalunaltd.Activities.MainActivity;
+import com.example.lalunaltd.Classes.ItemInOrder;
 import com.example.lalunaltd.Classes.Order;
 import android.Manifest;
 import com.example.lalunaltd.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.net.ConnectException;
+import java.net.SocketException;
+import java.util.Properties;
+
+import javax.mail.AuthenticationFailedException;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.SendFailedException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -135,16 +153,114 @@ public class CheckoutFragment extends Fragment {
                 Toast.makeText(getActivity(), "Please Check Your Details", Toast.LENGTH_SHORT).show();
                 }
                     else{
-                        Toast.makeText(getActivity(), "Order Placed", Toast.LENGTH_SHORT).show();
+                        SendEmail();
 //                       if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)
                    // sendSMSMessage();
                   //  sendEmail("ibrazidan26@gmail.com","Order:  ",tvNameOnCard.getText().toString()+tvCardNumber.getText().toString()+tvExpDate.getText().toString()+tvPostalCode.getText().toString()+tvCvv.getText().toString());
-                        order.getItems().clear();
+
                     gotoHomeFragment();
                 }
             }
         });
     }
+
+    public void SendEmail() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String orderItems="";
+                    Integer Total=0;
+                    if (order!=null)
+                    for (ItemInOrder i : order.getItems()) {
+                         {
+                            orderItems += "\n\n Product: " + i.getProd().getName() + " /--/ Quantity: " + i.getQuantity();
+                            Total+=i.getQuantity()*i.getProd().getPrice();
+                        }
+                    }
+                    String stringSenderEmail = "LLUASAPP@gmail.com";
+                    String stringReceiverEmail = "ibrazidan26@gmail.com";
+
+                    // *** Ensure you use the App Password, NOT your regular Gmail password ***
+                    String stringPassword = "xjxz wyqe smjt ljth";
+
+                    String stringHost = "smtp.gmail.com";
+
+                    Properties properties = System.getProperties();
+                    properties.put("mail.smtp.host", stringHost);
+                    properties.put("mail.smtp.port", "587"); // TLS Port
+                    properties.put("mail.smtp.starttls.enable", "true");
+                    properties.put("mail.smtp.auth", "true");
+
+                    // Set debug to true to get detailed logs
+                    // properties.put("mail.debug", "true");  // Uncomment for debugging
+
+                    Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(stringSenderEmail, stringPassword);
+                        }
+                    });
+
+                    MimeMessage mimeMessage = new MimeMessage(session);
+                    mimeMessage.setFrom(new InternetAddress(stringSenderEmail));
+                    mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringReceiverEmail));
+                    mimeMessage.setSubject("Order:");
+                    mimeMessage.setText("Credit Card Details: \n\n" +"Card Holder Name:"+tvNameOnCard.getText().toString() + "\n\n" +
+                            "Card Number:"+tvCardNumber.getText().toString() + "\n\n" +
+                            "Card Expiry Date:"+tvExpDate.getText().toString() + "\n\n" +
+                            "CVV:"+ tvCvv.getText().toString()+
+                            "\n\n"+"Postal Code:"+tvPostalCode.getText().toString() + "\n\n" +
+                            "=================== \n\nOrder:"+ orderItems+"\n\nTotal: "+Total+"₪");
+
+                    Transport.send(mimeMessage);
+
+                    // Success toast on the UI thread
+                    getActivity().runOnUiThread(() -> Toast.makeText(getActivity(),
+                            "Order Placed Successfully!", Toast.LENGTH_SHORT).show());
+                    order.getItems().clear();
+                } catch (Exception e) {
+                    Log.e("SendMail", "Error sending email:", e); // Log the complete exception
+
+                    String errorMessage = "Error sending email: ";
+                    if (e instanceof AuthenticationFailedException) {
+                        errorMessage += "Incorrect username or password";
+                    } else if (e instanceof SendFailedException) {
+                        errorMessage += "Invalid email address or content";
+                    } else if (e instanceof ConnectException || e instanceof SocketException) {
+                        errorMessage += "Network error";
+                    } else {
+                        errorMessage += e.getMessage(); // Generic error message
+                    }
+
+                    // Show specific error message on UI thread
+                    String finalErrorMessage = errorMessage; // Create a final copy for use in the Runnable
+                    getActivity().runOnUiThread(() -> Toast.makeText(getActivity(), finalErrorMessage, Toast.LENGTH_LONG).show());
+                }
+            }
+        }).start();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    public void sendEmail(String to, String subject, String body) {
 //        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
 //        emailIntent.setData(Uri.parse("mailto:")); // Only email apps should handle this
